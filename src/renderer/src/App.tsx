@@ -1,19 +1,17 @@
-// src/renderer/App.tsx
-import React from 'react'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { HashRouter, Routes, Route } from 'react-router-dom'
 import Home from './pages/Home'
 import Login from './pages/Login'
-import SignUp from './pages/Signup'
+import SignUp from './pages/SignUp'
 
-function App() {
+function App(): JSX.Element {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   )
 }
 

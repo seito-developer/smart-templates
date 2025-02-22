@@ -33,6 +33,9 @@ function createWindow(): void {
   } else {
     mainWindow.loadFile(join(__dirname, '../renderer/index.html'))
   }
+
+  // For devtool
+  mainWindow.webContents.openDevTools({ mode: 'detach' })
 }
 
 // This method will be called when Electron has finished
