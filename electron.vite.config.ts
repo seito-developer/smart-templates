@@ -1,8 +1,8 @@
-import { resolve } from 'path'
-import { defineConfig, externalizeDepsPlugin } from 'electron-vite'
-import react from '@vitejs/plugin-react'
+const { resolve } = require('path')
+const { defineConfig, externalizeDepsPlugin } = require('electron-vite')
+const react = require('@vitejs/plugin-react')
 
-export default defineConfig({
+module.exports = defineConfig({
   main: {
     plugins: [externalizeDepsPlugin()]
   },
