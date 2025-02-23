@@ -1,10 +1,7 @@
-import { defineConfig } from 'vite'
-import { defineConfig as defineElectronConfig, externalizeDepsPlugin } from 'electron-vite'
+import { defineConfig, externalizeDepsPlugin } from 'electron-vite'
 import react from '@vitejs/plugin-react'
-import tailwindcss from 'tailwindcss'
-import autoprefixer from 'autoprefixer'
 
-export default defineElectronConfig({
+const config = defineConfig({
   main: {
     plugins: [externalizeDepsPlugin()]
   },
@@ -15,9 +12,9 @@ export default defineElectronConfig({
     plugins: [react()],
   css: {
     postcss: {
-      plugins: [
-        tailwindcss(),
-        autoprefixer(),
+      plugins: async () => [
+        (await import('tailwindcss')).default(),
+        (await import('autoprefixer')).default(),
       ],
     },
   },
@@ -28,3 +25,5 @@ export default defineElectronConfig({
   }
   }
 })
+
+export default config
