@@ -1,16 +1,23 @@
-import { defineConfig } from 'electron-vite'
+import { defineConfig, externalizeDepsPlugin } from 'electron-vite'
 import react from '@vitejs/plugin-react'
 
 const config = {
   main: {
-    plugins: []
+    plugins: [externalizeDepsPlugin()]
   },
   preload: {
-    plugins: []
+    plugins: [externalizeDepsPlugin()]
   },
   renderer: {
     plugins: [react()],
-    css: true,
+    css: {
+      postcss: {
+        plugins: {
+          'tailwindcss': {},
+          'autoprefixer': {}
+        }
+      }
+    },
     resolve: {
       alias: {
         '@': './src/renderer/src'
