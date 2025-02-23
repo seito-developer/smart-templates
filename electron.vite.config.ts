@@ -1,8 +1,10 @@
-const { resolve } = require('path')
-const { defineConfig, externalizeDepsPlugin } = require('electron-vite')
-const react = require('@vitejs/plugin-react')
+import { resolve } from 'path'
+import { defineConfig, externalizeDepsPlugin } from 'electron-vite'
+import react from '@vitejs/plugin-react'
+import tailwindcss from 'tailwindcss'
+import autoprefixer from 'autoprefixer'
 
-module.exports = defineConfig({
+export default defineConfig({
   main: {
     plugins: [externalizeDepsPlugin()]
   },
@@ -12,7 +14,7 @@ module.exports = defineConfig({
   renderer: {
     css: {
       postcss: {
-        plugins: [require('tailwindcss'), require('autoprefixer')]
+        plugins: [tailwindcss, autoprefixer]
       }
     },
     resolve: {
