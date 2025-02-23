@@ -18,8 +18,8 @@ export default function SignUp(): ReactElement {
   }
   return (
     <div className="flex min-h-screen items-center justify-center p-4">
-      <Card className="w-full max-w-sm">
-        <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit}>
+        <Card className="w-full max-w-sm">
           <CardHeader>
             <CardTitle className="text-2xl text-center">Sign Up</CardTitle>
           </CardHeader>
@@ -51,13 +51,14 @@ export default function SignUp(): ReactElement {
             <Button className="w-full" type="submit">
               Sign Up
             </Button>
-          <div className="text-sm text-center">
-            <Link to="/login" className="text-primary hover:underline">
-              Already have an account? Login
-            </Link>
-          </div>
-        </CardFooter>
-      </Card>
+            <div className="text-sm text-center">
+              <Link to="/login" className="text-primary hover:underline">
+                Already have an account? Login
+              </Link>
+            </div>
+          </CardFooter>
+        </Card>
+      </form>
     </div>
   )
 }
