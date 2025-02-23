@@ -11,18 +11,15 @@ function createWindow() {
     height: 800,
     webPreferences: {
       nodeIntegration: true,
-      contextIsolation: false
+      contextIsolation: false,
+      webSecurity: false
     },
   };
-  
-  if (process.platform === 'linux' && !process.env.DISPLAY) {
-    options.frame = false;
-    options.x = 0;
-    options.y = 0;
-    app.commandLine.appendSwitch('disable-gpu');
-    app.commandLine.appendSwitch('no-sandbox');
-    app.commandLine.appendSwitch('headless');
-  }
+
+  // Always use these settings in our environment
+  app.commandLine.appendSwitch('disable-gpu');
+  app.commandLine.appendSwitch('no-sandbox');
+  app.commandLine.appendSwitch('disable-dev-shm-usage');
   
   mainWindow = new BrowserWindow(options);
 

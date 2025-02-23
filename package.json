@@ -10,7 +10,8 @@
     "lint": "next lint",
     "electron:dev": "wait-on tcp:3000 && tsc --project electron/tsconfig.json && electron . --dev",
     "electron:build": "npm run build && electron-builder",
-    "electron:start": "electron ."
+    "electron:start": "electron .",
+    "postinstall": "tailwindcss init -p"
   },
   "main": "electron/dist/main.js",
   "dependencies": {
@@ -20,20 +21,22 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
+    "@tailwindcss/forms": "^0.5.10",
+    "@tailwindcss/typography": "^0.5.16",
     "@types/electron": "^1.4.38",
     "@types/next": "^8.0.7",
     "@types/node": "^20.17.19",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "autoprefixer": "^10.4.20",
+    "autoprefixer": "^10.4.14",
     "concurrently": "^9.1.2",
     "electron": "^34.2.0",
     "electron-builder": "^25.1.8",
     "electron-is-dev": "^3.0.1",
     "eslint": "^9",
     "eslint-config-next": "15.1.7",
-    "postcss": "^8.5.3",
-    "tailwindcss": "^3.4.1",
+    "postcss": "^8.4.14",
+    "tailwindcss": "^3.3.0",
     "typescript": "^5.7.3",
     "wait-on": "^8.0.2"
   }
