@@ -44,17 +44,14 @@ function createWindow() {
         height: 800,
         webPreferences: {
             nodeIntegration: true,
-            contextIsolation: false
+            contextIsolation: false,
+            webSecurity: false
         },
     };
-    if (process.platform === 'linux' && !process.env.DISPLAY) {
-        options.frame = false;
-        options.x = 0;
-        options.y = 0;
-        electron_1.app.commandLine.appendSwitch('disable-gpu');
-        electron_1.app.commandLine.appendSwitch('no-sandbox');
-        electron_1.app.commandLine.appendSwitch('headless');
-    }
+    // Always use these settings in our environment
+    electron_1.app.commandLine.appendSwitch('disable-gpu');
+    electron_1.app.commandLine.appendSwitch('no-sandbox');
+    electron_1.app.commandLine.appendSwitch('disable-dev-shm-usage');
     mainWindow = new electron_1.BrowserWindow(options);
     var startUrl = isDev
         ? 'http://localhost:3000'
