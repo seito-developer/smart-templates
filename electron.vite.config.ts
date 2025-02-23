@@ -1,10 +1,8 @@
 import { resolve } from 'path'
 import { defineConfig, externalizeDepsPlugin } from 'electron-vite'
 import react from '@vitejs/plugin-react'
-import type { PluginOption } from 'vite'
 
-// Import PostCSS plugins dynamically to avoid ESM issues
-const config = defineConfig(async () => ({
+const config = defineConfig({
   main: {
     plugins: [externalizeDepsPlugin()]
   },
