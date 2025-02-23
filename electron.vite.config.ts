@@ -1,10 +1,7 @@
-import { fileURLToPath } from 'url'
-import { dirname, resolve } from 'path'
 import { defineConfig, externalizeDepsPlugin } from 'electron-vite'
 import react from '@vitejs/plugin-react'
-
-const __filename = fileURLToPath(import.meta.url)
-const __dirname = dirname(__filename)
+import tailwindcss from 'tailwindcss'
+import autoprefixer from 'autoprefixer'
 
 export default defineConfig({
   main: {
@@ -24,7 +21,7 @@ export default defineConfig({
     },
     resolve: {
       alias: {
-        '@': resolve('src/renderer/src')
+        '@': './src/renderer/src'
       }
     },
     plugins: [react()]
