@@ -2,7 +2,7 @@ import { resolve } from 'path'
 import { defineConfig, externalizeDepsPlugin } from 'electron-vite'
 import react from '@vitejs/plugin-react'
 
-const config = defineConfig({
+export default defineConfig({
   main: {
     plugins: [externalizeDepsPlugin()]
   },
@@ -26,5 +26,3 @@ const config = defineConfig({
     plugins: [react()]
   }
 })
-
-export default config
