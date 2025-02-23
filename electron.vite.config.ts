@@ -1,35 +1,22 @@
 import { defineConfig } from 'electron-vite'
 import react from '@vitejs/plugin-react'
 
-export default defineConfig({
+const config = {
   main: {
-    build: {
-      rollupOptions: {
-        external: ['tailwindcss', 'autoprefixer']
-      }
-    }
+    plugins: []
   },
   preload: {
-    build: {
-      rollupOptions: {
-        external: ['tailwindcss', 'autoprefixer']
-      }
-    }
+    plugins: []
   },
   renderer: {
     plugins: [react()],
-    css: {
-      postcss: {
-        plugins: {
-          tailwindcss: {},
-          autoprefixer: {}
-        }
-      }
-    },
+    css: true,
     resolve: {
       alias: {
         '@': './src/renderer/src'
       }
     }
   }
-})
+}
+
+export default defineConfig(config)
