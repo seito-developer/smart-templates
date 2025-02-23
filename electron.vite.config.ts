@@ -2,10 +2,9 @@ import { resolve } from 'path'
 import { defineConfig, externalizeDepsPlugin } from 'electron-vite'
 import react from '@vitejs/plugin-react'
 import type { PluginOption } from 'vite'
-import tailwindcss from 'tailwindcss'
-import autoprefixer from 'autoprefixer'
 
-const config = defineConfig({
+// Import PostCSS plugins dynamically to avoid ESM issues
+const config = defineConfig(async () => ({
   main: {
     plugins: [externalizeDepsPlugin()]
   },
@@ -15,7 +14,10 @@ const config = defineConfig({
   renderer: {
     css: {
       postcss: {
-        plugins: [tailwindcss, autoprefixer]
+        plugins: {
+          tailwindcss: {},
+          autoprefixer: {}
+        }
       }
     },
     resolve: {
