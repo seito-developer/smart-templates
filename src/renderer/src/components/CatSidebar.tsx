@@ -7,6 +7,8 @@ import {
     SidebarMenu,
     SidebarMenuButton,
     SidebarMenuItem,
+    SidebarMenuSub,
+    SidebarMenuSubItem,
   } from "@/components/ui/sidebar"
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import { ChevronDown } from "lucide-react";
@@ -29,29 +31,31 @@ export function CatSidebar({ cats }: CatSidebarProps) {
   return (
     <Sidebar>
       <SidebarContent>
-        <Collapsible defaultOpen className="group/collapsible">
-          {cats.map((catItem) => (
-            <SidebarGroup key={catItem.title}>
-              <SidebarGroupLabel asChild>
-                  <CollapsibleTrigger>
+        {cats.map((catItem) => (
+          <SidebarMenu key={catItem.title}>
+            <Collapsible defaultOpen className="group/collapsible">
+              <SidebarMenuItem>
+                <CollapsibleTrigger asChild>
+                  <SidebarMenuButton>
                     {catItem.title}
                     <ChevronDown className="ml-auto transition-transform group-data-[state=open]/collapsible:rotate-180" />
-                  </CollapsibleTrigger>
-              </SidebarGroupLabel>
-              <CollapsibleContent>
-                {catItem.templates.map((templateItem) => (
-                  <SidebarGroupContent key={templateItem.title}>
-                    <SidebarMenuItem key={templateItem.title}>
-                      <SidebarMenuButton asChild>
-                          <span>{templateItem.title}</span>
-                      </SidebarMenuButton>
-                    </SidebarMenuItem>
-                  </SidebarGroupContent>
-                ))}
-              </CollapsibleContent>
-            </SidebarGroup>
-          ))}
-        </Collapsible>
+                  </SidebarMenuButton>
+                </CollapsibleTrigger>
+                <CollapsibleContent>
+                  {catItem.templates.map((templateItem) => (
+                    <SidebarMenuSub key={templateItem.title}>
+                      <SidebarMenuSubItem>
+                        <SidebarMenuButton>
+                          {templateItem.title}
+                        </SidebarMenuButton>
+                      </SidebarMenuSubItem>
+                    </SidebarMenuSub>
+                  ))}
+                </CollapsibleContent>
+              </SidebarMenuItem>
+            </Collapsible>
+          </SidebarMenu>
+        ))}
       </SidebarContent>
     </Sidebar>
   )
