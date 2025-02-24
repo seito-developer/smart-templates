@@ -22,10 +22,5 @@ export default defineConfig({
         external: ['electron']
       }
     }
-    // css: {
-    //   postcss: {
-    //     plugins: [tailwindcss()]
-    //   }
-    // }
   }
 })
