@@ -1,6 +1,8 @@
 import { AnswerField } from '@/components/AnswerField';
 import { CatSidebar } from '@/components/CatSidebar'
+import TextContentArea from '@/components/MailTexts';
 import { SidebarProvider } from '@/components/ui/sidebar'
+import { templateDenied } from '@/data/answers/siidSales';
 import { cats } from '@/data/cats'
 import { inits } from '@/data/questions/siidSales';
 import { useState } from 'react';
@@ -43,6 +45,16 @@ export default function SiidSales() {
   };
 
   if (!currentQuestionId) {
+    if(answers["q2"] === "お断り"){
+      return (
+        <TextContentArea textContent={templateDenied({  
+            name: answers["q0"],
+            url: answers["q3_denied"],
+            time: answers["q1"],
+          })}
+        />
+      )
+    }
     return (
       <div style={{ margin: 20 }}>
         <h2>アンケートが終了しました。ご協力ありがとうございました！</h2>
