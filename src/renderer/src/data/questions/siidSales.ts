@@ -6,12 +6,12 @@ interface QuestionProps {
     nextMapping: any
 }
 
-const init: QuestionProps[] = [
+export const inits: QuestionProps[] = [
     {
         id: "q0",
         questionText: "お客様のお名前を入力してください。",
         type: "text",
-        nextMapping: "q2"
+        nextMapping: "q1"
     }, {
         id: "q1",
         questionText: "面談の実施時期はいつですか？",
@@ -19,7 +19,11 @@ const init: QuestionProps[] = [
         options: [
             "今日", "昨日", "一昨日以前"
         ],
-        nextMapping: "q2"
+        nextMapping: {
+            "今日":"q2", 
+            "昨日":"q2", 
+            "一昨日以前":"q2"
+        }
     },{
         id: "q2",
         questionText: "商談時にお客様からどう返答いただいたかのステータスを選択してください。",
@@ -40,7 +44,12 @@ const init: QuestionProps[] = [
         options: [
             "Basic", "Career(通常)", "Career + Full Support", "Carer"
         ],
-        nextMapping: "q4_accepted"
+        nextMapping: {
+            "Basic": "q4_accepted",
+            "Career(通常)": "q4_accepted",
+            "Career + Full Support": "q4_accepted",
+            "Carer": "q4_accepted",
+        }
     },{
         id: "q3_considering",
         questionText: "次回の面談日を入力してください。",
@@ -73,7 +82,10 @@ const init: QuestionProps[] = [
         options: [
             "有", "無"
         ],
-        nextMapping: null
+        nextMapping: {
+            "有": null,
+            "無": null
+        }
     },
 ]
 
