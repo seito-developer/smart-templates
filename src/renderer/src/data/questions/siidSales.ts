@@ -26,57 +26,46 @@ export const inits: QuestionProps[] = [
         }
     },{
         id: "q2",
+        questionText: "戦略シートのURLを記入してください",
+        type: "text",
+        nextMapping: "q3"
+    },{
+        id: "q3",
         questionText: "商談時にお客様からどう返答いただいたかのステータスを選択してください。",
         type: "choice",
         options: [
-            "承諾", "検討", "お断り", "その他"
+            "承諾", "お断り", "次回打ち合わせ"
         ],
         nextMapping: {
-            "承諾": "q3_accepted", 
-            "検討": "q3_considering", 
-            "お断り": "q3_denied",
-            "その他": "q3_other"
+            "承諾": "q4_accepted", 
+            "次回打ち合わせ": "q4_continued",
+            "お断り": null
         }
     },{
-        id: "q3_accepted",
+        id: "q4_accepted",
         questionText: "コースを選択してください。",
         type: "choice",
         options: [
             "Basic", "Career(通常)", "Career + Full Support", "Carer"
         ],
         nextMapping: {
-            "Basic": "q4_accepted",
-            "Career(通常)": "q4_accepted",
-            "Career + Full Support": "q4_accepted",
-            "Carer": "q4_accepted",
+            "Basic": "q5_accepted",
+            "Career(通常)": "q5_accepted",
+            "Career + Full Support": "q5_accepted",
+            "Carer": "q5_accepted",
         }
     },{
-        id: "q3_considering",
+        id: "q4_continued",
         questionText: "次回の面談日を入力してください。",
         type: "text",
-        nextMapping: "q4_considering"
-    },{
-        id: "q3_denied",
-        questionText: "戦略シートのURLを記入してください",
-        type: "text",
         nextMapping: null
-    },{
-        id: "q3_other",
-        questionText: "戦略シートのURLを記入してください",
-        type: "text",
-        nextMapping: null
-    },{
-        id: "q4_accepted",
+    }, {
+        id: "q5_accepted",
         questionText: "受講開始日を入力してください。",
         type: "text",
-        nextMapping: "q5_accepted"
+        nextMapping: "q6_accepted"
     },{
-        id: "q4_considering",
-        questionText: "戦略シートのURLを記入してください",
-        type: "text",
-        nextMapping: null
-    },{
-        id: "q5_accepted",
+        id: "q6_accepted",
         questionText: "リスキル給付金の使用の有無を選択してください。",
         type: "choice",
         options: [

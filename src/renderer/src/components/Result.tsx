@@ -1,21 +1,33 @@
 import TextContentArea from './MailTexts'
-import { templateDenied } from '@/data/answers/siidSales'
+import { templateContinue, templateDenied } from '@/data/answers/siidSales'
 import { Button } from './ui/button'
 
 export default function Result({ answers, handleReset }: { answers: any, handleReset: () => void }) {
     
   const renderResult = () => {
-    if (answers['q2'] === 'お断り') {
+    if (answers['q3'] === 'お断り') {
       return (
         <TextContentArea
           textContent={templateDenied({
             name: answers['q0'],
-            url: answers['q3_denied'],
-            time: answers['q1']
+            time: answers['q1'],
+            url: answers['q2']
           })}
         />
       )
     }
+    if (answers['q3'] === '次回打ち合わせ') {
+        return (
+          <TextContentArea
+            textContent={templateContinue({
+                name: answers['q0'],
+                time: answers['q1'],
+                url: answers['q2'],
+                date: answers['q4_continued']
+            })}
+          />
+        )
+      }
     return <div>Others</div>
   }
 
