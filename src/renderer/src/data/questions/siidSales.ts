@@ -1,9 +1,11 @@
-interface QuestionProps {
+export interface QuestionProps {
     id: string,
     questionText: string,
     type: string,
     options?: string[],
-    nextMapping: any
+    nextMapping: any,
+    index: number,
+    length: number
 }
 
 export const inits: QuestionProps[] = [
@@ -11,7 +13,9 @@ export const inits: QuestionProps[] = [
         id: "q0",
         questionText: "お客様のお名前を入力してください。",
         type: "text",
-        nextMapping: "q1"
+        nextMapping: "q1",
+        index: 0,
+        length: 7
     }, {
         id: "q1",
         questionText: "面談の実施時期はいつですか？",
@@ -23,12 +27,16 @@ export const inits: QuestionProps[] = [
             "今日":"q2", 
             "昨日":"q2", 
             "一昨日以前":"q2"
-        }
+        },
+        index: 1,
+        length: 7
     },{
         id: "q2",
         questionText: "戦略シートのURLを記入してください",
         type: "text",
-        nextMapping: "q3"
+        nextMapping: "q3",
+        index: 2,
+        length: 7
     },{
         id: "q3",
         questionText: "商談時にお客様からどう返答いただいたかのステータスを選択してください。",
@@ -40,7 +48,9 @@ export const inits: QuestionProps[] = [
             "承諾": "q4_accepted", 
             "次回打ち合わせ": "q4_continued",
             "お断り": null
-        }
+        },
+        index: 3,
+        length: 7
     },{
         id: "q4_accepted",
         questionText: "コースを選択してください。",
@@ -53,17 +63,23 @@ export const inits: QuestionProps[] = [
             "Career(通常)": "q5_accepted",
             "Career + Full Support": "q5_accepted",
             "Career + VIP": "q5_accepted",
-        }
+        },
+        index: 4,
+        length: 7
     },{
         id: "q4_continued",
         questionText: "次回の面談日を入力してください。",
-        type: "text",
-        nextMapping: null
+        type: "date",
+        nextMapping: null,
+        index: 4,
+        length: 5
     }, {
         id: "q5_accepted",
         questionText: "受講開始日を入力してください。",
-        type: "text",
-        nextMapping: "q6_accepted"
+        type: "date",
+        nextMapping: "q6_accepted",
+        index: 5,
+        length: 7
     },{
         id: "q6_accepted",
         questionText: "リスキル給付金の使用の有無を選択してください。",
@@ -74,7 +90,9 @@ export const inits: QuestionProps[] = [
         nextMapping: {
             "有": null,
             "無": null
-        }
+        },
+        index: 6,
+        length: 7
     },
 ]
 

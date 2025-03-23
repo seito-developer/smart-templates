@@ -1,5 +1,6 @@
 import { Input } from './ui/input'
 import Options from './Options'
+import { DatePicker } from './DatePicker'
 
 export function AnswerField({ question, answers, handleAnswerChange }) {
   const { id, questionText, type, options } = question
@@ -11,6 +12,14 @@ export function AnswerField({ question, answers, handleAnswerChange }) {
         <div>
           <p>{questionText}</p>
           <Options id={id} options={options} onChange={handleAnswerChange} />
+        </div>
+      )
+    }
+    if (type === 'date') {
+      return (
+        <div>
+          <p>{questionText}</p>
+          <DatePicker id={id} onSelect={handleAnswerChange} />
         </div>
       )
     }

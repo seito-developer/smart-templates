@@ -1,7 +1,6 @@
 import { AnswerField } from '@/components/AnswerField'
-import Headline from '@/components/Headline'
 import Layout from '@/components/Layout'
-import { Progress } from '@/components/Progress'
+import ProgressBar from '@/components/ProgressBar'
 import Result from '@/components/Result'
 import { Button } from '@/components/ui/button'
 import { inits } from '@/data/questions/siidSales'
@@ -65,7 +64,7 @@ export default function SiidSales() {
 
   return (
     <Layout title="初回お礼メール">
-      <Progress value={33} className="w-full" />
+      <ProgressBar currentQuestion={currentQuestion} />
 
       <div className="my-5">
         {currentQuestionId ? (
