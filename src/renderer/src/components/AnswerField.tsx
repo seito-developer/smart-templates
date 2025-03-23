@@ -1,35 +1,29 @@
-import { Input } from "./ui/input";
+import { Input } from './ui/input'
+import Options from './Options'
 
-export function AnswerField({question, answers, handleAnswerChange}) {
-
+export function AnswerField({ question, answers, handleAnswerChange }) {
   const { id, questionText, type, options } = question
   const userAnswer = answers[id] || '' // 既に答えていれば反映
-  console.log('question:', question);
+  console.log('question:', question)
 
   const render = () => {
     if (type === 'choice') {
       return (
         <div>
           <p>{questionText}</p>
-          {options.map((opt) => (
-            <label key={opt} style={{ marginRight: '10px' }}>
-              <input
-                type="radio"
-                name={id}
-                value={opt}
-                checked={userAnswer === opt}
-                onChange={(e) => handleAnswerChange(id, e.target.value)}
-              />
-              {opt}
-            </label>
-          ))}
+          <Options id={id} options={options} onChange={handleAnswerChange} />
         </div>
       )
     } else if (type === 'text') {
       return (
         <div>
           <p>{questionText}</p>
-          <Input type="text" value={userAnswer} required onChange={(e) => handleAnswerChange(id, e.target.value)} />
+          <Input
+            type="text"
+            value={userAnswer}
+            required
+            onChange={(e) => handleAnswerChange(id, e.target.value)}
+          />
         </div>
       )
     } else {
