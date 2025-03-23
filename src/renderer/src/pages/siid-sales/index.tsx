@@ -7,6 +7,7 @@ import { SidebarProvider } from '@/components/ui/sidebar'
 import { cats } from '@/data/cats'
 import { inits } from '@/data/questions/siidSales'
 import { useKeyContol } from '@/hooks/useKeyContol'
+import { Progress } from '@radix-ui/react-progress'
 import { useState } from 'react'
 
 const getQuestionById = (questions, id) => {
@@ -20,6 +21,14 @@ export default function SiidSales() {
 
   const handleNext = () => {
     if (!currentQuestion) return
+    const userAnswer = answers[currentQuestion.id];
+    
+    // --- 必須回答のバリデーション ---
+    if (!userAnswer || (typeof userAnswer === "string" && userAnswer.trim() === "")) {
+      alert("回答を入力（または選択）してください。");
+      return; 
+    }
+    
     let nextId = null
     if (currentQuestion.type === 'choice') {
       const selectedValue = answers[currentQuestion.id]
@@ -59,6 +68,7 @@ export default function SiidSales() {
     <SidebarProvider>
       <CatSidebar cats={cats} />
       <main className="p-4">
+        <Progress value={33} className="w-[60%]" />
         <Headline>初回お礼メール</Headline>
 
         <div className="my-5">

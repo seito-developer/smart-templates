@@ -1,8 +1,6 @@
 import TextContentArea from './MailTexts'
 import { templateDenied } from '@/data/answers/siidSales'
 import { Button } from './ui/button'
-import { Link } from 'react-router-dom'
-import { TEMPLATES } from '@/constants/routes'
 
 export default function Result({ answers, handleReset }: { answers: any, handleReset: () => void }) {
     
