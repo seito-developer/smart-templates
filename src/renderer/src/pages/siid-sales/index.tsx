@@ -1,11 +1,9 @@
 import { AnswerField } from '@/components/AnswerField'
-import { CatSidebar } from '@/components/CatSidebar'
 import Headline from '@/components/Headline'
+import Layout from '@/components/Layout'
 import { Progress } from '@/components/Progress'
 import Result from '@/components/Result'
 import { Button } from '@/components/ui/button'
-import { SidebarProvider } from '@/components/ui/sidebar'
-import { cats } from '@/data/cats'
 import { inits } from '@/data/questions/siidSales'
 import { useKeyContol } from '@/hooks/useKeyContol'
 
@@ -22,14 +20,14 @@ export default function SiidSales() {
 
   const handleNext = () => {
     if (!currentQuestion) return
-    const userAnswer = answers[currentQuestion.id];
-    
+    const userAnswer = answers[currentQuestion.id]
+
     // --- 必須回答のバリデーション ---
-    if (!userAnswer || (typeof userAnswer === "string" && userAnswer.trim() === "")) {
-      alert("回答を入力（または選択）してください。");
-      return; 
+    if (!userAnswer || (typeof userAnswer === 'string' && userAnswer.trim() === '')) {
+      alert('回答を入力（または選択）してください。')
+      return
     }
-    
+
     let nextId = null
     if (currentQuestion.type === 'choice') {
       const selectedValue = answers[currentQuestion.id]
@@ -61,39 +59,31 @@ export default function SiidSales() {
   }
 
   const handleReset = () => {
-    setAnswers({});
-    setCurrentQuestionId("q0");
-  };
+    setAnswers({})
+    setCurrentQuestionId('q0')
+  }
 
   return (
-    <SidebarProvider>
-      <CatSidebar cats={cats} />
+    <Layout title="初回お礼メール">
+      <Progress value={33} className="w-full" />
 
-      <main className="p-4 w-full">
-        <Progress value={33} className="w-full" />
-
-        <br />
-
-        <Headline>初回お礼メール</Headline>
-
-        <div className="my-5">
-          {currentQuestionId ? (
-            <>
-              <AnswerField
-                question={currentQuestion}
-                answers={answers}
-                handleAnswerChange={handleAnswer}
-              />
-              <br />
-              <Button variant="outline" onClick={handleNext}>
-                次へ
-              </Button>
-            </>
-          ) : (
-            <Result answers={answers} handleReset={handleReset} />
-          )}
-        </div>
-      </main>
-    </SidebarProvider>
+      <div className="my-5">
+        {currentQuestionId ? (
+          <>
+            <AnswerField
+              question={currentQuestion}
+              answers={answers}
+              handleAnswerChange={handleAnswer}
+            />
+            <br />
+            <Button variant="outline" onClick={handleNext}>
+              次へ
+            </Button>
+          </>
+        ) : (
+          <Result answers={answers} handleReset={handleReset} />
+        )}
+      </div>
+    </Layout>
   )
 }

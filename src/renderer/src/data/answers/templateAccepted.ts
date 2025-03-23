@@ -1,6 +1,6 @@
 import { courseData } from "@/constants/courseData";
 import { add365Days } from "@/lib/date";
-
+import { convertFee } from "@/lib/utils";
 
 const templateAccepted = (
     {
@@ -32,7 +32,7 @@ const templateAccepted = (
             `▶2.お申し込みのプラン・費用・支払い形式に関しまして`,
             `プラン：${courseData[course].name}`,
             `A. お支払い方法と費用＜銀行振込ご一括の場合＞`,
-            `${courseData[course].tuition.discount.cash}を下記の弊社口座にお振込み下さいませ。`,
+            `${convertFee(courseData[course].tuition.discount.cash)}を下記の弊社口座にお振込み下さいませ。`,
             `※早期お申し込み割引5%適応済み価格となります。`,
             ``,
             `銀行名　　：楽天銀行`,
@@ -44,7 +44,7 @@ const templateAccepted = (
             ``,
             `B. お支払い方法と費用＜クレジットカード払いの場合＞`,
             `※クレジットカードでの分割払いの場合手数料が+5%発生いたしますが、早期申し込みの5%割引と相殺させていただきます。`,
-            `${courseData[course].tuition.discount.credit_card} を下記URLから決済をお願いいたします。分割回数に関しては任意の回数をご指定ください。`,
+            `${convertFee(courseData[course].tuition.discount.credit_card)} を下記URLから決済をお願いいたします。分割回数に関しては任意の回数をご指定ください。`,
             ``,
             `${courseData[course].tuition.discount.payment_url}`,
         ].join('\n');
