@@ -52,7 +52,7 @@ export const inits: QuestionProps[] = [
             "Basic": "q5_accepted",
             "Career(通常)": "q5_accepted",
             "Career + Full Support": "q5_accepted",
-            "Carer": "q5_accepted",
+            "Career + VIP": "q5_accepted",
         }
     },{
         id: "q4_continued",
