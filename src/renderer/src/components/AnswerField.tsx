@@ -22,6 +22,7 @@ export function AnswerField({ question, answers, handleAnswerChange }) {
           type="text"
           value={userAnswer}
           required
+          autoFocus
           onChange={(e) => handleAnswerChange(id, e.target.value)}
         />
       </div>

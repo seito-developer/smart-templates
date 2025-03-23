@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { cn } from '@/lib/utils'
 
 export default function Options({ id, options, onChange }: { id: string; options: string[], onChange: (id: string, value: string) => void }) {
-  const [selectedPlan, setSelectedPlan] = useState('')
+  const [selectedPlan, setSelectedPlan] = useState(options[0])
 
   const handleChange = (value: string) => {
     setSelectedPlan(value)
@@ -30,6 +30,7 @@ export default function Options({ id, options, onChange }: { id: string; options
                     <div className="absolute inset-[4px] rounded-full bg-primary" />
                   )}
                   <input
+                    defaultChecked={index === 0 ? true : false}
                     type="radio"
                     id={`${id}-${index}`}
                     name={id}
