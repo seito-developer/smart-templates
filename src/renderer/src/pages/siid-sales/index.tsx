@@ -1,13 +1,14 @@
 import { AnswerField } from '@/components/AnswerField'
 import { CatSidebar } from '@/components/CatSidebar'
 import Headline from '@/components/Headline'
+import { Progress } from '@/components/Progress'
 import Result from '@/components/Result'
 import { Button } from '@/components/ui/button'
 import { SidebarProvider } from '@/components/ui/sidebar'
 import { cats } from '@/data/cats'
 import { inits } from '@/data/questions/siidSales'
 import { useKeyContol } from '@/hooks/useKeyContol'
-import { Progress } from '@radix-ui/react-progress'
+
 import { useState } from 'react'
 
 const getQuestionById = (questions, id) => {
@@ -67,8 +68,12 @@ export default function SiidSales() {
   return (
     <SidebarProvider>
       <CatSidebar cats={cats} />
-      <main className="p-4">
-        <Progress value={33} className="w-[60%]" />
+
+      <main className="p-4 w-full">
+        <Progress value={33} className="w-full" />
+
+        <br />
+
         <Headline>初回お礼メール</Headline>
 
         <div className="my-5">
