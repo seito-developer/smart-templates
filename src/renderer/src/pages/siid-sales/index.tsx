@@ -42,7 +42,8 @@ export default function SiidSales() {
     },
   });
 
-  if (!currentQuestionId) {
+  // if (!currentQuestionId) {
+  const renderResult = () => {
     if(answers["q2"] === "お断り"){
       return (
         <TextContentArea textContent={templateDenied({  
@@ -79,10 +80,15 @@ export default function SiidSales() {
       <Headline>初回お礼メール</Headline>
 
       <div className='my-5'>
-        <AnswerField question={currentQuestion} answers={answers} handleAnswerChange={handleAnswer} />
+        {!currentQuestionId ? renderResult() : (
+          <>
+            <AnswerField question={currentQuestion} answers={answers} handleAnswerChange={handleAnswer} />
+            <Button variant="outline" onClick={handleNext}>次へ</Button>
+          </>
+        )}
       </div>
 
-      <Button variant="outline" onClick={handleNext}>次へ</Button>
+      
     </main>
     </SidebarProvider>
   )
