@@ -3,16 +3,16 @@ import Layout from '@/components/Layout'
 import ProgressBar from '@/components/ProgressBar'
 import Result from '@/components/Result'
 import { Button } from '@/components/ui/button'
-import { inits } from '@/data/questions/siidSales'
+import { inits } from '@/data/questions/initialAppointment'
 import { useKeyContol } from '@/hooks/useKeyContol'
 
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 
 const getQuestionById = (questions, id) => {
   return questions.find((q) => q.id === id)
 }
 
-export default function SiidSales() {
+export default function InitialAppointment() {
   const [currentQuestionId, setCurrentQuestionId] = useState<string | null>('q0')
   const [answers, setAnswers] = useState({})
   const currentQuestion = getQuestionById(inits, currentQuestionId)

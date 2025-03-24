@@ -1,4 +1,4 @@
-import { QuestionProps } from '@/data/questions/siidSales'
+import { QuestionProps } from '@/data/questions/initialAppointment'
 import { Progress } from './ui/progress'
 
 export default function ProgressBar({currentQuestion}: {currentQuestion: QuestionProps | null}) {

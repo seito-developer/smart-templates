@@ -1,8 +1,8 @@
 import TextContentArea from './MailTexts'
-import { templateContinue, templateDenied } from '@/data/answers/siidSales'
+import { templateContinue, templateDenied } from '@/data/answers/initialAppointment'
 import { Button } from './ui/button'
 import { templateAccepted } from '@/data/answers/templateAccepted'
-import { title } from '@/data/questions/siidSales'
+import { title } from '@/data/questions/initialAppointment'
 
 export default function Result({
   answers,

@@ -1,7 +1,7 @@
 import { HashRouter, Routes, Route } from 'react-router-dom'
 import Login from '@/pages/Login'
 import SignUp from '@/pages/SignUp'
-import SiidSales from './pages/siid-sales'
+import InitialAppointment from './pages/initial-appointment'
 import { HOME, SIGNUP, TEMPLATES } from './constants/routes'
 
 function App(): JSX.Element {
@@ -10,7 +10,7 @@ function App(): JSX.Element {
       <Routes>
         <Route path={HOME} element={<Login />} />
         <Route path={SIGNUP} element={<SignUp />} />
-        <Route path={TEMPLATES.SIID_SALES} element={<SiidSales />} />
+        <Route path={TEMPLATES.SIID_SALES} element={<InitialAppointment />} />
       </Routes>
     </HashRouter>
   )
