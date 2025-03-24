@@ -1,25 +1,25 @@
 export const templateDenied = ({
-    name,
-    sheet_url,
-    time
-  }: {
-    name: string
-    sheet_url: string
-    time: string
-  }) => {
-    const texts = [
-      `${name}様`,
-      ``,      
-      `お世話になっております。SiiD運営チームです。`,
-      `${time}は個別コンサルへのご参加おつかれさまでした!`,
-      ``,
-      `${time}のシートはこちらよりアクセス＆ダウンロード可能です。`,
-      `${sheet_url}`,
-      ``,
-      `何卒よろしくお願い致します。`
-    ].join('\n')
-    return texts
-  }
+  name,
+  sheet_url,
+  time
+}: {
+  name: string
+  sheet_url: string
+  time: string
+}) => {
+  const texts = [
+    `${name}様`,
+    ``,      
+    `お世話になっております。SiiD運営チームです。`,
+    `${time}は個別コンサルへのご参加おつかれさまでした!`,
+    ``,
+    `${time}のシートはこちらよりアクセス＆ダウンロード可能です。`,
+    `${sheet_url}`,
+    ``,
+    `何卒よろしくお願い致します。`
+  ].join('\n')
+  return texts
+}
 
   export const templateContinue = ({
     name,

@@ -1,8 +1,7 @@
-import TextContentArea from '../../components/MailTexts'
-import { templateContinue, templateDenied } from '@/data/answers/initialAppointment'
-import { Button } from '../../components/ui/button'
+import TextContentArea from '@/components/MailTexts'
+import { Button } from '@/components/ui/button'
 import { templateAccepted } from '@/data/answers/templateAccepted'
-import { title } from './questions'
+import { templateConsidered, templateDenied } from './answers'
 
 export default function Result({
   answers,
@@ -11,39 +10,27 @@ export default function Result({
   answers: any
   handleReset: () => void
 }) {
-  const getTitle = () => {
-    if (answers['q3'] === '承諾') {
-      return title.accepted
-    }
-    else if (answers['q3'] === '次回打ち合わせ') {
-      return title.continued
-    } else {
-      return title.others
-    }
-  }
-      
   const renderResult = () => {
-    if (answers['q3'] === 'お断り') {
+    if (answers['q2'] === 'お断り') {
       return (
         <TextContentArea
           textContent={templateDenied({
             name: answers['q0'],
             time: answers['q1'],
-            sheet_url: answers['q2']
           })}
         />
       )
     }
-    if (answers['q3'] === '次回打ち合わせ') {
+    if (answers['q2'] === '検討') {
       return (
         <TextContentArea
-          textContent={templateContinue({
-            name: answers['q0'],
-            time: answers['q1'],
-            sheet_url: answers['q2'],
-            date: answers['q4_continued']
-          })}
-        />
+        textContent={templateConsidered({
+          name: answers['q0'],
+          time: answers['q1'],
+          discount_limitation: answers['q3_considered'],
+          isReskill: answers['q5_accepted']
+        })}
+      />
       )
     }
     return (
@@ -51,10 +38,9 @@ export default function Result({
         textContent={templateAccepted({
           name: answers['q0'],
           time: answers['q1'],
-          sheet_url: answers['q2'],
-          course: answers['q4_accepted'],
-          start_date: answers['q5_accepted'],
-          isReskill: answers['q6_accepted']
+          course: answers['q3_accepted'],
+          start_date: answers['q4_accepted'],
+          isReskill: answers['q5_accepted']
         })}
       />
     )
@@ -62,11 +48,6 @@ export default function Result({
 
   return (
     <>
-      <p className='py-2 font-bold'>タイトル</p>
-      <TextContentArea
-        textContent={getTitle()}
-      />
-      <br />
       <p className='py-2 font-bold'>本題</p>
       {renderResult()}
       <br />

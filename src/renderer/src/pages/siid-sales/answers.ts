@@ -1,3 +1,22 @@
+export const templateDenied = ({
+  name,
+  time
+}: {
+  name: string
+  time: string
+}) => {
+  const texts = [
+    `${name}様`,
+    ``,      
+    `お世話になっております。SiiD運営チームです。`,
+    `${time}は個別説明会へのご参加ありがとうございました!`,
+    `今回は残念でしたが、またの機会にご参加いただければ幸いです。`,
+    ``,
+    `何卒よろしくお願い致します。`
+  ].join('\n')
+  return texts
+}
+
 const templateConsidered = ({
   name,
   time,

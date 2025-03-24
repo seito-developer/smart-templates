@@ -13,7 +13,7 @@ const templateAccepted = (
       }: {
         name: string,
         time: string,
-        sheet_url: string,
+        sheet_url?: string,
         course: string, // "career" or "careerFullSupport" or "careerVIP" or "basic"
         start_date: string,
         isReskill: string // "有" or "無"
@@ -31,6 +31,7 @@ const templateAccepted = (
             ``,
             `▶2.お申し込みのプラン・費用・支払い形式に関しまして`,
             `プラン：${courseData[course].name}`,
+            ``,
             `A. お支払い方法と費用＜銀行振込ご一括の場合＞`,
             `${convertFee(courseData[course].tuition.discount.cash)}を下記の弊社口座にお振込み下さいませ。`,
             `※早期お申し込み割引5%適応済み価格となります。`,
