@@ -4,7 +4,7 @@ import { formatToYmd } from '@/lib/date'
 
 export function AnswerField({ question, answers, handleAnswerChange }) {
   const { id, questionText, type, options } = question
-  const userAnswer = answers[id] || '' // 既に答えていれば反映
+  let userAnswer = answers[id] || '' // 既に答えていれば反映
 
   const render = () => {
     if (type === 'choice') {
@@ -16,12 +16,14 @@ export function AnswerField({ question, answers, handleAnswerChange }) {
       )
     }
     if (type === 'date') {
+      if (!userAnswer) {
+        userAnswer = formatToYmd(new Date())
+      }
       return (
         <div>
           <p>{questionText}</p>
           <Input
             type="date"
-            defaultValue={formatToYmd(new Date())}
             value={userAnswer}
             required
             autoFocus
