@@ -1,6 +1,6 @@
 import TextContentArea from '@/components/MailTexts'
 import { Button } from '@/components/ui/button'
-import { templateStarted } from './answers'
+import { templateOnClass, templateStarted } from './answers'
 
 export default function Result({
   answers,
@@ -11,12 +11,22 @@ export default function Result({
 }) {
   const renderResult = () => {
     return (
-      <TextContentArea
-        textContent={templateStarted({
-          name: answers['q0'],
-          studentId: answers['q1'],
-        })}
-      />
+      <>
+        <p className='py-2'>教材・コース・ID・今後</p>
+        <TextContentArea
+          textContent={templateStarted({
+            name: answers['q0'],
+            studentId: answers['q1'],
+          })}
+        />
+        <br />
+        <p className='py-2'>オンクラス案内メール</p>
+        <TextContentArea
+          textContent={templateOnClass({
+            name: answers['q0'],
+          })}
+        />
+      </>
     )
   }
 

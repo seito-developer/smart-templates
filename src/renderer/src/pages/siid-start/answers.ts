@@ -1,13 +1,7 @@
-export const templateStarted = ({
-  name,
-  studentId
-}: {
-  name: string
-  studentId: string
-}) => {
+export const templateStarted = ({ name, studentId }: { name: string; studentId: string }) => {
   const texts = [
     `${name}様`,
-    ``,      
+    ``,
     `お世話になっております。SiiD運営チームです。`,
     `ご入金とお申込み書のご署名ご対応ありがとうございました！`,
     `こちらでお申し込み確定とさせていただきます！`,
@@ -32,6 +26,24 @@ export const templateStarted = ({
     `受講決定後の講座についてのご質問やサポートはメール(siid@bug-fix.org )でのみ受け付けております。`,
     `※Lineだと登録者様の数が膨大で識別・即レスが難しいため、お問い合わせの際はメールにてご連絡くださいますようお願いいたします。`,
     ``,
+    `何卒よろしくお願いいたします！`
+  ].join('\n')
+  return texts
+}
+
+export const templateOnClass = ({ name }: { name: string }) => {
+  const texts = [
+    `${name}様`,
+    ``,
+    `お世話になっております。SiiD運営チームです。`,
+    `受講開始方法についてご案内させていただきます。`,
+    `こちらの受講生様用サイトにアクセスし、名前・メールアドレス・パスワードを設定の上、「コースの招待を受ける」をクリックして受講を開始してください。`,
+    `お名前は本名漢字でのご登録を、メールアドレスは今後も各種アカウント発行やデータ共有で使用する場合があるので共通して同じものをご設定ください。`,
+    `https://app.the-online-class.com/users/invitations?key=oITN0MDI6UXa`,
+    ``,
+    `アクセス後、「オリエンテーション」を開始し、冒頭の動画をご覧いただくところから開始ください。`,
+    ``,
+    `また、何かご不明な点がございましたら、お気軽にお問合せいただければと思います。`,
     `何卒よろしくお願いいたします！`
   ].join('\n')
   return texts
