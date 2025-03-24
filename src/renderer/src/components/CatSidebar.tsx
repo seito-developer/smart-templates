@@ -26,22 +26,15 @@ interface CatSidebarProps {
 }
 
 export function CatSidebar({ cats }: CatSidebarProps) {
-  const divRef = useRef<HTMLDivElement>(null)
-  useEffect(() => {
-    if (divRef.current) {
-      divRef.current.inert = true
-    }
-  }, [])
 
   return (
-    <div ref={divRef}>
-      <Sidebar>
+    <Sidebar>
         <SidebarContent>
           {cats.map((catItem) => (
             <SidebarMenu key={catItem.title}>
               <Collapsible defaultOpen className="group/collapsible">
                 <SidebarMenuItem>
-                  <SidebarMenuButton>
+                  <SidebarMenuButton tabIndex={-1}>
                     {catItem.title}
                     <ChevronDown className="ml-auto transition-transform group-data-[state=open]/collapsible:rotate-180" />
                   </SidebarMenuButton>
@@ -50,7 +43,7 @@ export function CatSidebar({ cats }: CatSidebarProps) {
                       <SidebarMenuSub key={templateItem.title}>
                         <SidebarMenuSubItem>
                           <SidebarMenuButton asChild>
-                            <a href={`#${templateItem.url}`}>{templateItem.title}</a>
+                            <a href={`#${templateItem.url}`} tabIndex={-1}>{templateItem.title}</a>
                           </SidebarMenuButton>
                         </SidebarMenuSubItem>
                       </SidebarMenuSub>
@@ -62,6 +55,5 @@ export function CatSidebar({ cats }: CatSidebarProps) {
           ))}
         </SidebarContent>
       </Sidebar>
-    </div>
   )
 }
