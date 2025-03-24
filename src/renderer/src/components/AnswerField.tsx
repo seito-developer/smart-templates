@@ -1,5 +1,6 @@
 import { Input } from './ui/input'
 import Options from './Options'
+import { formatToYmd } from '@/lib/date'
 
 export function AnswerField({ question, answers, handleAnswerChange }) {
   const { id, questionText, type, options } = question
@@ -19,12 +20,13 @@ export function AnswerField({ question, answers, handleAnswerChange }) {
         <div>
           <p>{questionText}</p>
           <Input
-          type="date"
-          value={userAnswer}
-          required
-          autoFocus
-          onChange={(e) => handleAnswerChange(id, e.target.value)}
-        />
+            type="date"
+            defaultValue={formatToYmd(new Date())}
+            value={userAnswer}
+            required
+            autoFocus
+            onChange={(e) => handleAnswerChange(id, e.target.value)}
+          />
         </div>
       )
     }

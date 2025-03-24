@@ -16,7 +16,7 @@ export default function TextContentArea({textContent}: {textContent: string}) {
   }
 
   return (
-    <div className="max-w-2xl mx-auto p-6 overflow-hidden">
+    <div className="mx-auto overflow-hidden">
       <div className="relative bg-zinc-900 text-white rounded-xl p-6 shadow-lg">
         <div className="absolute top-4 right-4">
           <button

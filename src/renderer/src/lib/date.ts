@@ -15,4 +15,22 @@ export const add365Days = (dateStr:string):string => {
   
     return `${y}-${m}-${d}`;
   }
-  
+
+/**
+ * Dateオブジェクトを受け取り "yyyy-mm-dd" 形式の文字列を返す関数
+ * @param {Date} date 
+ * @returns {string} "yyyy-mm-dd"
+ */
+export const formatToYmd = (date:Date):string => {
+  const year = date.getFullYear();
+  // getMonth() は0始まりなので +1 し、ゼロ埋め
+  const month = String(date.getMonth() + 1).padStart(2, '0');
+  // 日付も同様にゼロ埋め
+  const day = String(date.getDate()).padStart(2, '0');
+
+  return `${year}-${month}-${day}`;
+}
+
+// 使用例
+const now = new Date();         // 今日の日時
+console.log(formatToYmd(now));  // "2025-03-17" など

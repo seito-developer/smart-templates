@@ -8,6 +8,12 @@ export interface QuestionProps {
     totalLength: number
 }
 
+export const title = {
+    accepted: 'SiiDご受講のご案内に関しまして',
+    continued: `次回のSiiD個別説明会に関しまして`,
+    others: `セイト先生の個別コンサルご参加・おつかれさまでした`
+}
+
 export const inits: QuestionProps[] = [
     {
         id: "q0",
@@ -42,12 +48,12 @@ export const inits: QuestionProps[] = [
         questionText: "商談時にお客様からどう返答いただいたかのステータスを選択してください。",
         type: "choice",
         options: [
-            "承諾", "お断り", "次回打ち合わせ"
+            "次回打ち合わせ", "お断り", "承諾"
         ],
         nextMapping: {
-            "承諾": "q4_accepted", 
             "次回打ち合わせ": "q4_continued",
-            "お断り": null
+            "お断り": null,
+            "承諾": "q4_accepted"
         },
         index: 3,
         totalLength: 7
@@ -56,13 +62,13 @@ export const inits: QuestionProps[] = [
         questionText: "コースを選択してください。",
         type: "choice",
         options: [
-            "Basic", "Career(通常)", "Career + Full Support", "Carer"
+            "Career(通常)", "Career + Full Support", "Carer + VIP", "Basic"
         ],
         nextMapping: {
-            "Basic": "q5_accepted",
             "Career(通常)": "q5_accepted",
             "Career + Full Support": "q5_accepted",
             "Career + VIP": "q5_accepted",
+            "Basic": "q5_accepted",
         },
         index: 4,
         totalLength: 7
