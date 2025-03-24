@@ -1,8 +1,8 @@
-import TextContentArea from './MailTexts'
+import TextContentArea from '../../components/MailTexts'
 import { templateContinue, templateDenied } from '@/data/answers/initialAppointment'
-import { Button } from './ui/button'
+import { Button } from '../../components/ui/button'
 import { templateAccepted } from '@/data/answers/templateAccepted'
-import { title } from '@/data/questions/initialAppointment'
+import { title } from './questions'
 
 export default function Result({
   answers,

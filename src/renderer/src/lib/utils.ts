@@ -8,3 +8,7 @@ export function cn(...inputs: ClassValue[]): string {
 export function convertFee(value: number | string): string {
   return `${value.toLocaleString()}円`
 }
+
+export const getQuestionById = (questions, id) => {
+  return questions.find((q) => q.id === id)
+}
