@@ -1,8 +1,9 @@
 import { HashRouter, Routes, Route } from 'react-router-dom'
 import Login from '@/pages/Login'
 import SignUp from '@/pages/SignUp'
-import InitialAppointment from './pages/initial-appointment'
 import { HOME, SIGNUP, TEMPLATES } from './constants/routes'
+import InitialAppointment from './pages/initial-appointment'
+import SiidSales from './pages/siid-sales'
 
 function App(): JSX.Element {
   return (
@@ -10,7 +11,8 @@ function App(): JSX.Element {
       <Routes>
         <Route path={HOME} element={<Login />} />
         <Route path={SIGNUP} element={<SignUp />} />
-        <Route path={TEMPLATES.SIID_SALES} element={<InitialAppointment />} />
+        <Route path={TEMPLATES.INITIAL_APPOINTMENT} element={<InitialAppointment />} />
+        <Route path={TEMPLATES.SIID_SALES} element={<SiidSales />} />
       </Routes>
     </HashRouter>
   )

@@ -11,7 +11,7 @@ export const add365Days = (dateStr:string):string => {
     // 年・月・日を取り出して "yyyy-mm-dd" に整形
     const y = date.getFullYear();
     const m = pad(date.getMonth() + 1);
-    const d = pad(date.getDate());
+    const d = pad(date.getDate() - 1);
   
     return `${y}-${m}-${d}`;
   }

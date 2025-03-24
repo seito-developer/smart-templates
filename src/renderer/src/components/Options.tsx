@@ -11,7 +11,7 @@ export default function Options({ id, options, onChange }: { id: string; options
   )
 
   return (
-    <div className="w-full max-w-md mx-auto p-6 space-y-6">
+    <div className="w-full max-w-md p-6 space-y-6">
       <div className="space-y-4">
         {options.map((opt, index) => {
           const checked = index === selectedIndex
@@ -45,7 +45,7 @@ export default function Options({ id, options, onChange }: { id: string; options
               </div>
               <div className="grid gap-1.5">
                 <label htmlFor={`${id}-${index}`} className="font-medium cursor-pointer">
-                {index + 1} : {opt}
+                {`[${index + 1}]`} {opt}
                 </label>
               </div>
             </div>

@@ -70,7 +70,7 @@ export default function Result({
       <p className='py-2 font-bold'>本題</p>
       {renderResult()}
       <br />
-      <Button variant="outline">保存</Button>
+      <Button variant="outline" disabled>保存</Button>
       <Button variant="outline" onClick={handleReset}>
         もう一度はじめから
       </Button>
