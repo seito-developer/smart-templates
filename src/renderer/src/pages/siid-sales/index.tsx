@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button'
 import { inits } from '@/data/questions/siidSales'
 import { useKeyContol } from '@/hooks/useKeyContol'
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 const getQuestionById = (questions, id) => {
   return questions.find((q) => q.id === id)
@@ -61,6 +61,10 @@ export default function SiidSales() {
     setAnswers({})
     setCurrentQuestionId('q0')
   }
+
+  // useEffect(() => {
+  //   console.log('currentQuestion:', currentQuestion)
+  // }, [currentQuestion])
 
   return (
     <Layout title="初回お礼メール">

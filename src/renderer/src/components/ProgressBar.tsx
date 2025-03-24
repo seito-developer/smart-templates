@@ -1,12 +1,16 @@
 import { QuestionProps } from '@/data/questions/siidSales'
 import { Progress } from './ui/progress'
 
-export default function ProgressBar({currentQuestion}: {currentQuestion: QuestionProps}) {
-    const parent = currentQuestion.length / 100
+export default function ProgressBar({currentQuestion}: {currentQuestion: QuestionProps | null}) {
+  const calcPercentage = () => {
+    if (!currentQuestion) return 100
+    const parent = currentQuestion.totalLength / 100
     const child = currentQuestion.index
     const number = child / parent
+    return number
+  }
     
   return (
-    <Progress value={number} className="w-full" />
+    <Progress value={calcPercentage()} className="w-full" />
   )
 }

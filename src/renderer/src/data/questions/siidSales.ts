@@ -5,7 +5,7 @@ export interface QuestionProps {
     options?: string[],
     nextMapping: any,
     index: number,
-    length: number
+    totalLength: number
 }
 
 export const inits: QuestionProps[] = [
@@ -15,7 +15,7 @@ export const inits: QuestionProps[] = [
         type: "text",
         nextMapping: "q1",
         index: 0,
-        length: 7
+        totalLength: 7
     }, {
         id: "q1",
         questionText: "面談の実施時期はいつですか？",
@@ -29,14 +29,14 @@ export const inits: QuestionProps[] = [
             "一昨日以前":"q2"
         },
         index: 1,
-        length: 7
+        totalLength: 7
     },{
         id: "q2",
         questionText: "戦略シートのURLを記入してください",
         type: "text",
         nextMapping: "q3",
         index: 2,
-        length: 7
+        totalLength: 7
     },{
         id: "q3",
         questionText: "商談時にお客様からどう返答いただいたかのステータスを選択してください。",
@@ -50,7 +50,7 @@ export const inits: QuestionProps[] = [
             "お断り": null
         },
         index: 3,
-        length: 7
+        totalLength: 7
     },{
         id: "q4_accepted",
         questionText: "コースを選択してください。",
@@ -65,21 +65,21 @@ export const inits: QuestionProps[] = [
             "Career + VIP": "q5_accepted",
         },
         index: 4,
-        length: 7
+        totalLength: 7
     },{
         id: "q4_continued",
         questionText: "次回の面談日を入力してください。",
         type: "date",
         nextMapping: null,
         index: 4,
-        length: 5
+        totalLength: 5
     }, {
         id: "q5_accepted",
         questionText: "受講開始日を入力してください。",
         type: "date",
         nextMapping: "q6_accepted",
         index: 5,
-        length: 7
+        totalLength: 7
     },{
         id: "q6_accepted",
         questionText: "リスキル給付金の使用の有無を選択してください。",
@@ -92,7 +92,7 @@ export const inits: QuestionProps[] = [
             "無": null
         },
         index: 6,
-        length: 7
+        totalLength: 7
     },
 ]
 
