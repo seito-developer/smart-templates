@@ -32,7 +32,7 @@ export function CatSidebar({ cats }: CatSidebarProps) {
           <SidebarMenu key={catItem.title}>
             <Collapsible defaultOpen className="group/collapsible">
               <SidebarMenuItem>
-                <CollapsibleTrigger asChild>
+                <CollapsibleTrigger>
                   <SidebarMenuButton>
                     {catItem.title}
                     <ChevronDown className="ml-auto transition-transform group-data-[state=open]/collapsible:rotate-180" />
@@ -42,8 +42,10 @@ export function CatSidebar({ cats }: CatSidebarProps) {
                   {catItem.templates.map((templateItem) => (
                     <SidebarMenuSub key={templateItem.title}>
                       <SidebarMenuSubItem>
-                        <SidebarMenuButton>
-                          {templateItem.title}
+                        <SidebarMenuButton asChild>
+                          <a href={`#${templateItem.url}`}>
+                            {templateItem.title}
+                          </a>
                         </SidebarMenuButton>
                       </SidebarMenuSubItem>
                     </SidebarMenuSub>
