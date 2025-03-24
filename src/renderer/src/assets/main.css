@@ -121,3 +121,7 @@
     @apply bg-background text-foreground;
   }
 }
+
+*:focus {
+  outline: rgb(204, 116, 211) auto 2px;
+}
