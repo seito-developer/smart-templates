@@ -62,13 +62,13 @@ export const inits: QuestionProps[] = [
         questionText: "コースを選択してください。",
         type: "choice",
         options: [
-            "Career(通常)", "Career + Full Support", "Carer + VIP", "Basic"
+            "career", "careerFullSupport", "careerVip", "basic"
         ],
         nextMapping: {
-            "Career(通常)": "q5_accepted",
-            "Career + Full Support": "q5_accepted",
-            "Career + VIP": "q5_accepted",
-            "Basic": "q5_accepted",
+            "career": "q5_accepted",
+            "careerFullSupport": "q5_accepted",
+            "careerVip": "q5_accepted",
+            "basic": "q5_accepted",
         },
         index: 4,
         totalLength: 7

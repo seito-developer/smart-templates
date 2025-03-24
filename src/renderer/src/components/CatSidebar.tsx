@@ -1,27 +1,27 @@
 import {
-    Sidebar,
-    SidebarContent,
-    SidebarMenu,
-    SidebarMenuButton,
-    SidebarMenuItem,
-    SidebarMenuSub,
-    SidebarMenuSubItem,
-  } from "@/components/ui/sidebar"
-import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
-import { ChevronDown } from "lucide-react";
+  Sidebar,
+  SidebarContent,
+  SidebarMenu,
+  SidebarMenuButton,
+  SidebarMenuItem,
+  SidebarMenuSub,
+  SidebarMenuSubItem
+} from '@/components/ui/sidebar'
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible'
+import { ChevronDown } from 'lucide-react'
 
 interface Template {
-  title: string;
-  url: string;
+  title: string
+  url: string
 }
 
 interface Cat {
-  title: string;
-  templates: Template[];
+  title: string
+  templates: Template[]
 }
-  
+
 interface CatSidebarProps {
-  cats: Cat[];
+  cats: Cat[]
 }
 
 export function CatSidebar({ cats }: CatSidebarProps) {
@@ -32,20 +32,16 @@ export function CatSidebar({ cats }: CatSidebarProps) {
           <SidebarMenu key={catItem.title}>
             <Collapsible defaultOpen className="group/collapsible">
               <SidebarMenuItem>
-                <CollapsibleTrigger>
-                  <SidebarMenuButton>
-                    {catItem.title}
-                    <ChevronDown className="ml-auto transition-transform group-data-[state=open]/collapsible:rotate-180" />
-                  </SidebarMenuButton>
-                </CollapsibleTrigger>
+                <SidebarMenuButton>
+                  {catItem.title}
+                  <ChevronDown className="ml-auto transition-transform group-data-[state=open]/collapsible:rotate-180" />
+                </SidebarMenuButton>
                 <CollapsibleContent>
                   {catItem.templates.map((templateItem) => (
                     <SidebarMenuSub key={templateItem.title}>
                       <SidebarMenuSubItem>
                         <SidebarMenuButton asChild>
-                          <a href={`#${templateItem.url}`}>
-                            {templateItem.title}
-                          </a>
+                          <a href={`#${templateItem.url}`}>{templateItem.title}</a>
                         </SidebarMenuButton>
                       </SidebarMenuSubItem>
                     </SidebarMenuSub>

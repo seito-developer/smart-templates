@@ -1,5 +1,5 @@
 export const courseData = {
-    "Career(通常)": {
+    career: {
         name: 'Careerコース（通常）',
         tuition: {
             default: {
@@ -14,7 +14,8 @@ export const courseData = {
             }
         }
     },
-    "Career + Full Support": {
+    careerFullSupport: {
+        name: "Careerコース + Full Supportオプション",
         tuition: {
             default: {
                 cash: 698000,
@@ -28,8 +29,8 @@ export const courseData = {
             }
         }
     },
-    "Career + VIP": {
-        name: 'Career + VIP',
+    careerVip: {
+        name: 'Careerコース + VIPオプション',
         tuition: {
             default: {
                 cash: 898000,
@@ -43,8 +44,8 @@ export const courseData = {
             }
         }
     },
-    'Basic': {
-        name: 'Basicコース（6ヶ月）',
+    basic: {
+        name: 'Basicコース',
         tuition: {
             default: {
                 cash: 98000,
