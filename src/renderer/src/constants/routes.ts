@@ -5,6 +5,7 @@ const SIGNUP = '/signup';
 const TEMPLATES = {
     INITIAL_APPOINTMENT: '/',
     SIID_SALES: '/siid-sales',
+    SIID_START: '/siid-start',
     // INITIAL_APPOINTMENT: '/siid-sales',
     // SIID_SALES: '/',
     // サービス説明後の返信

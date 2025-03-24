@@ -11,6 +11,6 @@ export const siidMail = [
   },
   {
     title: '3.開始案内',
-    url: '#'
+    url: TEMPLATES.SIID_START
   }
 ]

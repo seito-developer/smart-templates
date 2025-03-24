@@ -17,7 +17,7 @@ export const templateDenied = ({
   return texts
 }
 
-const templateConsidered = ({
+export const templateConsidered = ({
   name,
   time,
   discount_limitation,
@@ -55,4 +55,3 @@ const templateConsidered = ({
 
   return texts
 }
-export { templateConsidered }

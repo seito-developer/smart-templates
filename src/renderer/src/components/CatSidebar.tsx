@@ -7,9 +7,8 @@ import {
   SidebarMenuSub,
   SidebarMenuSubItem
 } from '@/components/ui/sidebar'
-import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible'
+import { Collapsible, CollapsibleContent } from '@/components/ui/collapsible'
 import { ChevronDown } from 'lucide-react'
-import { useEffect, useRef } from 'react'
 
 interface Template {
   title: string
