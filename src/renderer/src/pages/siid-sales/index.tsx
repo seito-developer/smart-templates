@@ -62,10 +62,6 @@ export default function SiidSales() {
     setCurrentQuestionId('q0')
   }
 
-  // useEffect(() => {
-  //   console.log('currentQuestion:', currentQuestion)
-  // }, [currentQuestion])
-
   return (
     <Layout title="初回お礼メール">
       <ProgressBar currentQuestion={currentQuestion} />
@@ -87,6 +83,7 @@ export default function SiidSales() {
           <Result answers={answers} handleReset={handleReset} />
         )}
       </div>
+      <pre>{JSON.stringify(answers, null, 2)}</pre>
     </Layout>
   )
 }

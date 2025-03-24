@@ -56,8 +56,6 @@ export default function Result({
       <Button variant="outline" onClick={handleReset}>
         もう一度はじめから
       </Button>
-      <br />
-      <pre>{JSON.stringify(answers, null, 2)}</pre>
     </>
   )
 }
