@@ -9,6 +9,7 @@ import {
 } from '@/components/ui/sidebar'
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible'
 import { ChevronDown } from 'lucide-react'
+import { useEffect, useRef } from 'react'
 
 interface Template {
   title: string
@@ -25,33 +26,42 @@ interface CatSidebarProps {
 }
 
 export function CatSidebar({ cats }: CatSidebarProps) {
+  const divRef = useRef<HTMLDivElement>(null)
+  useEffect(() => {
+    if (divRef.current) {
+      divRef.current.inert = true
+    }
+  }, [])
+
   return (
-    <Sidebar>
-      <SidebarContent>
-        {cats.map((catItem) => (
-          <SidebarMenu key={catItem.title}>
-            <Collapsible defaultOpen className="group/collapsible">
-              <SidebarMenuItem>
-                <SidebarMenuButton>
-                  {catItem.title}
-                  <ChevronDown className="ml-auto transition-transform group-data-[state=open]/collapsible:rotate-180" />
-                </SidebarMenuButton>
-                <CollapsibleContent>
-                  {catItem.templates.map((templateItem) => (
-                    <SidebarMenuSub key={templateItem.title}>
-                      <SidebarMenuSubItem>
-                        <SidebarMenuButton asChild>
-                          <a href={`#${templateItem.url}`}>{templateItem.title}</a>
-                        </SidebarMenuButton>
-                      </SidebarMenuSubItem>
-                    </SidebarMenuSub>
-                  ))}
-                </CollapsibleContent>
-              </SidebarMenuItem>
-            </Collapsible>
-          </SidebarMenu>
-        ))}
-      </SidebarContent>
-    </Sidebar>
+    <div ref={divRef}>
+      <Sidebar>
+        <SidebarContent>
+          {cats.map((catItem) => (
+            <SidebarMenu key={catItem.title}>
+              <Collapsible defaultOpen className="group/collapsible">
+                <SidebarMenuItem>
+                  <SidebarMenuButton>
+                    {catItem.title}
+                    <ChevronDown className="ml-auto transition-transform group-data-[state=open]/collapsible:rotate-180" />
+                  </SidebarMenuButton>
+                  <CollapsibleContent>
+                    {catItem.templates.map((templateItem) => (
+                      <SidebarMenuSub key={templateItem.title}>
+                        <SidebarMenuSubItem>
+                          <SidebarMenuButton asChild>
+                            <a href={`#${templateItem.url}`}>{templateItem.title}</a>
+                          </SidebarMenuButton>
+                        </SidebarMenuSubItem>
+                      </SidebarMenuSub>
+                    ))}
+                  </CollapsibleContent>
+                </SidebarMenuItem>
+              </Collapsible>
+            </SidebarMenu>
+          ))}
+        </SidebarContent>
+      </Sidebar>
+    </div>
   )
 }
