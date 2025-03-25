@@ -8,7 +8,7 @@ import { getQuestionById } from '@/lib/utils'
 import Result from './result'
 import { questions } from './questions'
 
-export default function SiidSales() {
+export default function CreateItems() {
   const [currentQuestionId, setCurrentQuestionId] = useState<string | null>('q0')
   const [answers, setAnswers] = useState({})
   const currentQuestion = getQuestionById(questions, currentQuestionId)
@@ -59,7 +59,7 @@ export default function SiidSales() {
   }
   
   return (
-    <Layout title="サービス説明後の返信">
+    <Layout title="アイテム作成">
       <ProgressBar currentQuestion={currentQuestion} />
 
       <div className="my-5">

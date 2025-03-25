@@ -1,14 +1,9 @@
 // const HOME = '/';
-const HOME = 'abc';
+const HOME = 'abc'; // 仮
 const LOGIN = '/login';
 const SIGNUP = '/signup';
-const TEMPLATES = {
-    INITIAL_APPOINTMENT: '/',
-    SIID_SALES: '/siid-sales',
-    SIID_START: '/siid-start',
-    // INITIAL_APPOINTMENT: '/siid-sales',
-    // SIID_SALES: '/',
-    // サービス説明後の返信
+const OPERATIONS = {
+    CREATE_ITEMS: '/',
 }
 
-export { HOME, LOGIN, SIGNUP, TEMPLATES };
+export { HOME, LOGIN, SIGNUP, OPERATIONS };

@@ -8,12 +8,6 @@ export interface QuestionProps {
     totalLength: number
 }
 
-export const title = {
-    accepted: 'SiiDご受講のご案内に関しまして',
-    continued: `次回のSiiD個別説明会に関しまして`,
-    others: `セイト先生の個別コンサルご参加・おつかれさまでした`
-}
-
 export const questions: QuestionProps[] = [
     {
         id: "q0",

@@ -2,7 +2,6 @@ import TextContentArea from '@/components/MailTexts'
 import { Button } from '@/components/ui/button'
 import { templateAccepted } from '@/data/answers/templateAccepted'
 import { templateContinue, templateDenied } from './answers'
-import { title } from './questions'
 
 export default function Result({
   answers,
@@ -11,16 +10,6 @@ export default function Result({
   answers: any
   handleReset: () => void
 }) {
-  const getTitle = () => {
-    if (answers['q3'] === '承諾') {
-      return title.accepted
-    }
-    else if (answers['q3'] === '次回打ち合わせ') {
-      return title.continued
-    } else {
-      return title.others
-    }
-  }
       
   const renderResult = () => {
     if (answers['q3'] === 'お断り') {
@@ -62,12 +51,6 @@ export default function Result({
 
   return (
     <>
-      <p className='py-2 font-bold'>タイトル</p>
-      <TextContentArea
-        textContent={getTitle()}
-      />
-      <br />
-      <p className='py-2 font-bold'>本題</p>
       {renderResult()}
       <br />
       <Button variant="outline" disabled>保存</Button>

@@ -1,16 +1,12 @@
-import { siidMail } from './templates'
+import { main } from './templates'
 
 export const cats = [
   {
-    title: 'SiiD対応メール',
-    templates: siidMail
+    title: 'メイン操作',
+    templates: main
   },
   {
-    title: 'ビジネスメール',
+    title: '設定',
     templates: []
   },
-  {
-    title: 'LINE対応',
-    templates: []
-  }
 ]
