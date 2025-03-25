@@ -59,7 +59,7 @@ export default function CreateItems() {
   }
   
   return (
-    <Layout title="アイテム作成">
+    <Layout title="シートのデータを自動生成">
       <ProgressBar currentQuestion={currentQuestion} />
 
       <div className="my-5">

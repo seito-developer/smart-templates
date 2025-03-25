@@ -2,7 +2,7 @@ import { main } from './templates'
 
 export const cats = [
   {
-    title: 'メイン操作',
+    title: 'アイテム作成',
     templates: main
   },
   {

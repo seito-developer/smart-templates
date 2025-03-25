@@ -2,7 +2,10 @@ import { OPERATIONS } from "@/constants/routes";
 
 export const main = [
   {
-    title: 'アイテム作成',
+    title: 'シートのデータを自動生成',
     url: OPERATIONS.CREATE_ITEMS
+  },{
+    title: 'チェック表',
+    url: OPERATIONS.CHECKS
   },
 ]
