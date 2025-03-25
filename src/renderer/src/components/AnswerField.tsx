@@ -32,6 +32,20 @@ export function AnswerField({ question, answers, handleAnswerChange }) {
         </div>
       )
     }
+    if (type === 'number') {
+      return (
+        <div>
+          <p>{questionText}</p>
+          <Input
+            type="number"
+            value={userAnswer}
+            required
+            autoFocus
+            onChange={(e) => handleAnswerChange(id, e.target.value)}
+          />
+        </div>
+      )
+    }
 
     return (
       <div>

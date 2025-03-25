@@ -1,6 +1,5 @@
 import TextContentArea from '@/components/MailTexts'
 import { Button } from '@/components/ui/button'
-import { templateAccepted } from '@/data/answers/templateAccepted'
 import { templateContinue, templateDenied } from './answers'
 
 export default function Result({
@@ -35,18 +34,6 @@ export default function Result({
         />
       )
     }
-    return (
-      <TextContentArea
-        textContent={templateAccepted({
-          name: answers['q0'],
-          time: answers['q1'],
-          sheet_url: answers['q2'],
-          course: answers['q4_accepted'],
-          start_date: answers['q5_accepted'],
-          isReskill: answers['q6_accepted']
-        })}
-      />
-    )
   }
 
   return (
