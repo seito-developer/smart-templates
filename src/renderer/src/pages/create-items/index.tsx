@@ -24,11 +24,11 @@ export default function CreateItems() {
     }
 
     let nextId = null
-    if(typeof currentQuestion.nextMapping === 'string') {
-      nextId = currentQuestion.nextMapping
-    } else {
+    if (currentQuestion.type === 'choice') {
       const selectedValue = answers[currentQuestion.id]
       nextId = currentQuestion.nextMapping[selectedValue]
+    } else if (currentQuestion.type === 'text') {
+      nextId = currentQuestion.nextMapping
     }
     if (!nextId) {
       setCurrentQuestionId(null)
