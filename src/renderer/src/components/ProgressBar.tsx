@@ -1,4 +1,5 @@
-import { QuestionProps } from '@/renderer/src/pages/initial-appointment/initialAppointment'
+
+import { QuestionProps } from '@/pages/initial-appointment/questions'
 import { Progress } from './ui/progress'
 
 export default function ProgressBar({currentQuestion}: {currentQuestion: QuestionProps | null}) {
