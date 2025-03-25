@@ -1,5 +1,5 @@
 appId: com.electron.app
-productName: package.json
+productName: Data Generator
 directories:
   buildResources: build
 files:
@@ -12,7 +12,7 @@ files:
 asarUnpack:
   - resources/**
 win:
-  executableName: package.json
+  executableName: Data Generator
 nsis:
   artifactName: ${name}-${version}-setup.${ext}
   shortcutName: ${productName}
