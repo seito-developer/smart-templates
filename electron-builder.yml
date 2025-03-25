@@ -1,5 +1,5 @@
 appId: com.electron.app
-productName: package.json
+productName: Smart Templates
 directories:
   buildResources: build
 files:
@@ -12,7 +12,7 @@ files:
 asarUnpack:
   - resources/**
 win:
-  executableName: package.json
+  executableName: Smart Templates
 nsis:
   artifactName: ${name}-${version}-setup.${ext}
   shortcutName: ${productName}
@@ -40,4 +40,4 @@ appImage:
 npmRebuild: false
 publish:
   provider: generic
-  url: https://example.com/auto-updates
+  url: https://bug-fix.org
