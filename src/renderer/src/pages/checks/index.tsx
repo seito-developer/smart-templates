@@ -1,29 +1,38 @@
 import Layout from '@/components/Layout'
 import { Checkbox } from '@/components/ui/checkbox'
 
-const todoList = [
-  {
-    id: '1',
-    label: 'Sheet 1への追加'
-  },{
-    id: '2',
-    label: 'Sheet 1, Sheet 2, Sheet 3, いずれもExecステータスをTRUEに変更'
-  },{
-    id: '3',
-    label: 'ItemContent, の画像を作成し、/itemType/xxxに保存してコミット'
-  },{
-    id: '4',
-    label: 'ItemThumnbnail, の画像を作成し、/tumnbaniakl/xxxに保存してコミット'
-  }
-]
+import { useReward } from 'react-rewards';
+import { todoList, todoListProps } from './todoList';
+import { useState } from 'react';
+
+
 
 export default function Checks() {
+  const { reward, isAnimating } = useReward('rewardId', 'confetti');
+  const [checkedItems, setCheckedItems] = useState<todoListProps[]>(todoList);
+
+
+  const handleChange = (index: number) => (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { checked } = e.target;
+
+    // 現在の配列をコピーし、該当indexだけ更新
+    const newCheckedItems = [...checkedItems];
+    newCheckedItems[index].checked = checked;
+    setCheckedItems(newCheckedItems);
+
+    // すべてtrueになったら"OK"と表示
+    const allChecked = newCheckedItems.every(value => value);
+    if (allChecked) {
+      console.log("OK");
+    }
+  };
+
   return (
     <Layout title="チェック事項">
       <ul>
-        {todoList.map((todoItem) => (
+        {todoList.map((todoItem, index) => (
           <li key={todoItem.id} className='mb-2'>
-            <Checkbox id={todoItem.id} />
+            <Checkbox id={todoItem.id} checked={checkedItems[index].checked} onCheckedChange={() => handleChange(index)} />
             <label
               htmlFor={todoItem.id}
               className="ml-1"
@@ -33,6 +42,13 @@ export default function Checks() {
           </li>
         ))}
       </ul>
+      <button
+    disabled={isAnimating}
+    onClick={reward}
+>
+    <span id="rewardId" />
+    🎉
+</button>
     </Layout>
   )
 }
