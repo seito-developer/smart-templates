@@ -1,7 +1,6 @@
 import { Button } from '@/components/ui/button'
-import { templateContinue, templateDenied } from './answers'
 import TableData from '@/components/Table'
-import { generateTableData } from './tableData/table-1'
+import { generateTableData } from './tableData/item_group'
 
 export default function Result({
   answers,
@@ -17,16 +16,16 @@ export default function Result({
 
   return (
     <>
-      <p className='font-bold'>Table 1</p>
+      <p className='font-bold'>item_group</p>
       <TableData thead={keys} tbody={values} />
       <br />
-      <p className='font-bold'>Table 1</p>
+      <p className='font-bold'>item_item_type</p>
       <TableData thead={keys} tbody={values} />
       <br />
-      <p className='font-bold'>Table 1</p>
+      <p className='font-bold'>shop_sell_item</p>
       <TableData thead={keys} tbody={values} />
       <br />
-      <p className='font-bold'>Table 1</p>
+      <p className='font-bold'>nft_metdata</p>
       <TableData thead={keys} tbody={values} />
       <br />
       <div className='flex gap-2'>
