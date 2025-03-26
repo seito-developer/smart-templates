@@ -74,12 +74,13 @@ export default function CreateItems() {
             <Button variant="outline" onClick={handleNext}>
               次へ
             </Button>
+            <br />
+            <pre>{JSON.stringify(answers, null, 2)}</pre>
           </>
         ) : (
           <Result answers={answers} handleReset={handleReset} />
         )}
       </div>
-      <pre>{JSON.stringify(answers, null, 2)}</pre>
     </Layout>
   )
 }

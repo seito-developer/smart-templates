@@ -1,6 +1,7 @@
 import { Button } from '@/components/ui/button'
 import { templateContinue, templateDenied } from './answers'
 import TableData from '@/components/Table'
+import { generateTableData } from './tableData/table-1'
 
 export default function Result({
   answers,
@@ -9,43 +10,31 @@ export default function Result({
   answers: any
   handleReset: () => void
 }) {
-      
-  // const renderResult = () => {
-  //   if (answers['q3'] === 'お断り') {
-  //     return (
-  //       <Table textContent="" />
-  //       // <TextContentArea
-  //       //   textContent={templateDenied({
-  //       //     name: answers['q0'],
-  //       //     time: answers['q1'],
-  //       //     sheet_url: answers['q2']
-  //       //   })}
-  //       // />
-  //     )
-  //   }
-  //   if (answers['q3'] === '次回打ち合わせ') {
-  //     return (
-  //       <TextContentArea
-  //         textContent={templateContinue({
-  //           name: answers['q0'],
-  //           time: answers['q1'],
-  //           sheet_url: answers['q2'],
-  //           date: answers['q4_continued']
-  //         })}
-  //       />
-  //     )
-  //   }
-  // }
+  
+  const obj = generateTableData()
+  const keys = Object.keys(obj)
+  const values = Object.values(obj)
 
   return (
     <>
-      {/* {renderResult()} */}
-      <TableData textContent="" />
+      <p className='font-bold'>Table 1</p>
+      <TableData thead={keys} tbody={values} />
       <br />
-      <Button variant="outline" disabled>保存</Button>
-      <Button variant="outline" onClick={handleReset}>
-        もう一度はじめから
-      </Button>
+      <p className='font-bold'>Table 1</p>
+      <TableData thead={keys} tbody={values} />
+      <br />
+      <p className='font-bold'>Table 1</p>
+      <TableData thead={keys} tbody={values} />
+      <br />
+      <p className='font-bold'>Table 1</p>
+      <TableData thead={keys} tbody={values} />
+      <br />
+      <div className='flex gap-2'>
+        <Button variant="outline" disabled>保存</Button>
+        <Button variant="outline" onClick={handleReset}>
+          もう一度はじめから
+        </Button>
+      </div>
     </>
   )
 }

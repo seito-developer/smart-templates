@@ -10,63 +10,22 @@ import {
   TableRow
 } from '@/components/ui/table'
 
-export default function TableData({ textContent }: { textContent: string }) {
-  const name = ''
-  const description = ''
-  const number = ''
-  const symbol = ''
-  const stock = ''
-  const ItemGroupMasterId = ''
-  const IdFrom = number.toString() + '00001'
-  const IdTo = number.toString() + stock.toString()
+export default function TableData({ thead, tbody } : { thead: string[], tbody: string[] }) {
+  
   return (
     <Table>
       <TableHeader>
         <TableRow>
-          <TableHead>Exec</TableHead>
-          <TableHead>Category</TableHead>
-          <TableHead>Symbol</TableHead>
-          <TableHead>TokenType</TableHead>
-          <TableHead>ItemGroupMasterId</TableHead>
-          <TableHead>Supply</TableHead>
-          <TableHead>IdFrom</TableHead>
-          <TableHead>IdTo</TableHead>
-          <TableHead>Name</TableHead>
-          <TableHead>Description</TableHead>
-          <TableHead>Image</TableHead>
-          <TableHead>ContentType</TableHead>
-          <TableHead>ContentUrl</TableHead>
-          <TableHead>ThreeContentBgColor</TableHead>
-          <TableHead>Author</TableHead>
-          <TableHead>ExternalUrl</TableHead>
-          <TableHead>AnimationUrl</TableHead>
-          <TableHead>Attributes</TableHead>
+          {thead.map((theadItem) => (
+            <TableHead key={theadItem}>{theadItem}</TableHead>
+          ))}
         </TableRow>
       </TableHeader>
       <TableBody>
         <TableRow>
-          <TableCell>TRUE</TableCell>
-          <TableCell>Collective</TableCell>
-          <TableCell>{symbol}</TableCell>
-          <TableCell>{number}</TableCell>
-          <TableCell>{ItemGroupMasterId}</TableCell>
-          <TableCell>{stock}</TableCell>
-          <TableCell>{IdFrom}</TableCell>
-          <TableCell>{IdTo}</TableCell>
-          <TableCell>{name}</TableCell>
-          <TableCell>{description}</TableCell>
-          <TableCell>
-            https://snft/itemtype/${symbol}/thumbnails/{number}.png
-          </TableCell>
-          <TableCell>image/png</TableCell>
-          <TableCell>
-            https://snft/itemtype/${symbol}/contents/{number}.png
-          </TableCell>
-          <TableCell>N/A</TableCell>
-          <TableCell>@{symbol}</TableCell>
-          <TableCell>N/A</TableCell>
-          <TableCell>N/A</TableCell>
-          <TableCell>N/A</TableCell>
+          {tbody.map((tbodyItem) => (
+            <TableCell key={tbodyItem}>{tbodyItem}</TableCell>
+          ))}
         </TableRow>
       </TableBody>
     </Table>
