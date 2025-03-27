@@ -10,7 +10,8 @@ export default function Result({
   handleReset: () => void
 }) {
   
-  const obj = generateTableData()
+  const obj = generateTableData(answers)
+  console.log('obj:', obj);
   const keys = Object.keys(obj)
   const values = Object.values(obj)
 
@@ -19,14 +20,14 @@ export default function Result({
       <p className='font-bold'>item_group</p>
       <TableData thead={keys} tbody={values} />
       <br />
-      <p className='font-bold'>item_item_type</p>
+      {/* <p className='font-bold'>item_item_type</p>
       <TableData thead={keys} tbody={values} />
       <br />
       <p className='font-bold'>shop_sell_item</p>
       <TableData thead={keys} tbody={values} />
       <br />
       <p className='font-bold'>nft_metdata</p>
-      <TableData thead={keys} tbody={values} />
+      <TableData thead={keys} tbody={values} /> */}
       <br />
       <div className='flex gap-2'>
         <Button variant="outline" disabled>保存</Button>

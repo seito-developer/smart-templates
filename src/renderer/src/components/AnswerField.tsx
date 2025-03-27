@@ -15,23 +15,23 @@ export function AnswerField({ question, answers, handleAnswerChange }) {
         </div>
       )
     }
-    if (type === 'date') {
-      if (!userAnswer) {
-        userAnswer = formatToYmd(new Date())
-      }
-      return (
-        <div>
-          <p>{questionText}</p>
-          <Input
-            type="date"
-            value={userAnswer}
-            required
-            autoFocus
-            onChange={(e) => handleAnswerChange(id, e.target.value)}
-          />
-        </div>
-      )
-    }
+    // if (type === 'date') {
+    //   if (!userAnswer) {
+    //     userAnswer = formatToYmd(new Date())
+    //   }
+    //   return (
+    //     <div>
+    //       <p>{questionText}</p>
+    //       <Input
+    //         type="date"
+    //         value={userAnswer}
+    //         required
+    //         autoFocus
+    //         onChange={(e) => handleAnswerChange(id, e.target.value)}
+    //       />
+    //     </div>
+    //   )
+    // }
     if (type === 'number') {
       return (
         <div>

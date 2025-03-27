@@ -1,32 +1,59 @@
-const generateTableData = () => {
-  const name = ''
-  const description = ''
-  const number = ''
-  const symbol = ''
-  const stock = ''
-  const itemGroupMasterId = ''
-  const idFrom = number.toString() + '00001'
-  const idTo = number.toString() + stock.toString()
+import { SellMethodEnum } from "@/constants/sellMethods"
+import { convertBoolean } from "@/lib/utils"
+
+export interface ItemGroupArgsProps {
+  id: string
+  name: string
+  fee: number
+  terms: string
+  sellMethod: SellMethodEnum
+  isNotForSale: boolean
+  resaleCondition: number
+  isMemberInfoRequired: boolean
+  isShippingAddressRequired: boolean
+  iPHolderLoyaltyRate: number
+}
+
+export interface ItemGroupReturnProps {
+  Exec: string
+  ID: string
+  Name: string
+  Fee: number
+  Terms: string
+  SellMethod: SellMethodEnum
+  IsNotForSale: string
+  ResaleCondition: number
+  IsMemberInfoRequired: string
+  IsShippingAddressRequired: string
+  IPHolderLoyaltyRate: number
+}
+
+const generateTableData = (answers: any):ItemGroupReturnProps => {
+  const convertedAnswer:ItemGroupArgsProps = {
+    id: answers['item_group_q1'],
+    name: answers['item_group_q2'],
+    fee: answers['item_group_q3'],
+    terms: answers['item_group_q4'],
+    sellMethod: answers['item_group_q5'],
+    isNotForSale: false,
+    resaleCondition: 1,
+    isMemberInfoRequired: false,
+    isShippingAddressRequired: false,
+    iPHolderLoyaltyRate: 0,
+  }
 
   return {
-    Exec: 'TRUE',
-    Category: 'Collective',
-    Symbol: symbol,
-    TokenType: number,
-    ItemGroupMasterId: itemGroupMasterId,
-    Supply: stock,
-    IdFrom: idFrom,
-    IdTo: idTo,
-    Name: name,
-    Description: description,
-    Image: `https://snft/itemtype/${symbol}/thumbnails/${number}.png`,
-    ContentType: 'image/png',
-    ContentUrl: `https://snft/itemtype/${symbol}/contents/${number}.png`,
-    ThreeContentBgColor: 'N/A',
-    Author: `@${symbol}`,
-    ExternalUrl: 'N/A',
-    AnimationUrl: 'N/A',
-    Attributes: 'N/A'
+    Exec: convertBoolean(true, 0) as string,
+    ID: convertedAnswer.id,
+    Name: convertedAnswer.name,
+    Fee: convertedAnswer.fee,
+    Terms: convertedAnswer.terms,
+    SellMethod: convertedAnswer.sellMethod,
+    IsNotForSale: convertBoolean(convertedAnswer.isNotForSale, 0) as string,
+    ResaleCondition: convertedAnswer.resaleCondition,
+    IsMemberInfoRequired: convertBoolean(convertedAnswer.isMemberInfoRequired, 0) as string,
+    IsShippingAddressRequired: convertBoolean(convertedAnswer.isShippingAddressRequired, 0) as string,
+    IPHolderLoyaltyRate: 100 - convertedAnswer.fee,
   }
 }
 

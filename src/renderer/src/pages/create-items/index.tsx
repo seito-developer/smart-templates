@@ -6,13 +6,13 @@ import { Button } from '@/components/ui/button'
 import { useKeyContol } from '@/hooks/useKeyContol'
 import { getQuestionById } from '@/lib/utils'
 import Result from './result'
-import { questions } from './questions'
+import { itemGroupQuestions } from './questions/itemGroup'
 
 export default function CreateItems() {
-  const [currentQuestionId, setCurrentQuestionId] = useState<string | null>('q0')
+  const [currentQuestionId, setCurrentQuestionId] = useState<string | null>('item_group_q0')
   const [answers, setAnswers] = useState({})
-  const currentQuestion = getQuestionById(questions, currentQuestionId)
-
+  const currentQuestion = getQuestionById(itemGroupQuestions, currentQuestionId)
+  console.log('currentQuestion:', currentQuestion);
   const handleNext = () => {
     if (!currentQuestion) return
     const userAnswer = answers[currentQuestion.id]

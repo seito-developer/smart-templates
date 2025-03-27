@@ -12,6 +12,17 @@ export interface QuestionProps {
     totalLength: number
 }
 
+// id: string
+//   name: string
+//   fee: number
+//   terms: string
+//   sellMethod: SellMethodEnum
+//   isNotForSale: boolean
+//   resaleCondition: number
+//   isMemberInfoRequired: boolean
+//   isShippingAddressRequired: boolean
+//   iPHolderLoyaltyRate: number
+
 export const questions: QuestionProps[] = [
     {
         id: "q0",
