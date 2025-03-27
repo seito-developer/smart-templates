@@ -17,9 +17,13 @@ export default function Result({
 
   return (
     <>
+    {answers['item_group_q0'] === 'はい' && (
+      <>
       <p className='font-bold'>item_group</p>
       <TableData thead={keys} tbody={values} />
       <br />
+      </>
+    )}
       {/* <p className='font-bold'>item_item_type</p>
       <TableData thead={keys} tbody={values} />
       <br />

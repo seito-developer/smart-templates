@@ -33,7 +33,7 @@ export const itemGroupQuestions: QuestionProps[] = [
         options: ['はい', 'いいえ'],
         nextMapping: {
             'はい': 'item_group_q1',
-            'いいえ': 'item_item_type'
+            'いいえ': null //'item_item_type_q0'
         },
         index: 0,
         totalLength: 1
