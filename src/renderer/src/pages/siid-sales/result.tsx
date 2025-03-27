@@ -36,6 +36,7 @@ export default function Result({
     return (
       <TextContentArea
         textContent={templateAccepted({
+          isConsulting: false,
           name: answers['q0'],
           time: answers['q1'],
           course: answers['q3_accepted'],
@@ -48,6 +49,11 @@ export default function Result({
 
   return (
     <>
+      <p className='py-2 font-bold'>タイトル</p>
+      <TextContentArea
+        textContent="SiiD個別説明会へご参加いただきありがとうございました"
+      />
+      <br />
       <p className='py-2 font-bold'>本題</p>
       {renderResult()}
       <br />

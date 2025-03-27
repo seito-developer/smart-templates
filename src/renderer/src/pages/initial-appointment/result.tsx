@@ -49,6 +49,7 @@ export default function Result({
     return (
       <TextContentArea
         textContent={templateAccepted({
+          isConsulting: true,
           name: answers['q0'],
           time: answers['q1'],
           sheet_url: answers['q2'],

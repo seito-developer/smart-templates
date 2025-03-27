@@ -4,6 +4,7 @@ import { convertFee } from "@/lib/utils";
 
 const templateAccepted = (
     {
+        isConsulting = false,
         name,
         time,
         sheet_url,
@@ -11,6 +12,7 @@ const templateAccepted = (
         start_date,
         isReskill
       }: {
+        isConsulting: boolean,
         name: string,
         time: string,
         sheet_url?: string,
@@ -23,7 +25,8 @@ const templateAccepted = (
     const sheet = sheet_url ? [
         ``,
         `${time}のシートのURLはこちらよりアクセス＆ダウンロード可能です。`,
-        `${sheet_url}`].join('\n') : ``;
+        `${sheet_url}`,
+        ``].join('\n') : ``;
 
     // お申込み方法
     const how_to_apply = (course) => {
@@ -61,15 +64,15 @@ const templateAccepted = (
         ``,
         `動画説明）https://drive.google.com/file/d/16xHw7Mn3C10Fi_AfEo95Yyql-XNXR7FY/view?usp=drive_link`,
         `資料）https://drive.google.com/file/d/1HS8WXcpo2k66GVWMp8q9wsCDhOT2XlWM/view?usp=drive_link`,
-        `窓口でお申し込みされる際は弊社の講座指定番号「1312047-2420011-0」をお伝えくださいませ。`].join('\n') : ``;
+        `窓口でお申し込みされる際は弊社の講座指定番号「1312047-2420011-0」をお伝えくださいませ。`,
+        ``].join('\n') : ``;
   
     const texts = [
     `${name}さま`,
     ``,
     `お世話になっております。SiiD運営チームです。`,
-    `${time}は個別コンサルへのご参加おつかれさまでした！`,
+    `${time}は${isConsulting ? '個別コンサルへのご参加おつかれさまでした！' : `SiiD個別説明会へご参加いただきありがとうございました！`}`,
     sheet,
-    ``,
     `またSiiDへのお申し込みを決めていただき誠にありがとうございます！`,
     `ご受講の手続きをさせていただきますので、下記の内容でご案内させていただきます。`,
     ``,
@@ -85,7 +88,6 @@ const templateAccepted = (
     `基本的には毎月1日 or 15日での開始とさせていただいておりますので、一旦仮で＜${start_date}〜${add365Days(start_date)}＞とさせていただきました。`,
     `ご要望があれば変更も可能ですのでご相談下さい。`,
     `${reskill}`,
-    ``,
     `※本日の資料はこちらでご確認いただけます。`,
     `https://docs.google.com/presentation/d/18jGkUX4S488jV0WFsyJL0qIJ3gWowBOzD-WB3NhWrvw/edit?usp=sharing`,
     `==================`,
