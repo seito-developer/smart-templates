@@ -1,4 +1,5 @@
-import { SYMBOLS } from "@/constants/data"
+import { itemGroupQuestions } from "./itemGroup";
+import { itemItemTypeQuestion } from "./itemItemType";
 
 export interface QuestionProps {
     id: string,
@@ -12,54 +13,4 @@ export interface QuestionProps {
     totalLength: number
 }
 
-// id: string
-//   name: string
-//   fee: number
-//   terms: string
-//   sellMethod: SellMethodEnum
-//   isNotForSale: boolean
-//   resaleCondition: number
-//   isMemberInfoRequired: boolean
-//   isShippingAddressRequired: boolean
-//   iPHolderLoyaltyRate: number
-
-export const questions: QuestionProps[] = [
-    {
-        id: "q0",
-        questionText: "アイテム名を入力してください。",
-        description: "",
-        example: "テスト用アイテム01",
-        type: "text",
-        nextMapping: "q1",
-        index: 0,
-        totalLength: 1
-    }, {
-        id: "q1",
-        questionText: "シンボル名を入れてください。",
-        description: "シンボル＝ストアなどで使われている名称",
-        example: "",
-        type: "choice",
-        options: SYMBOLS,
-        nextMapping: "q2",
-        index: 0,
-        totalLength: 1
-    }, {
-        id: "q2",
-        questionText: "何番目のアイテムかを入力してください。",
-        description: "例えばシートを確認し、30までグループがある場合、31と入力",
-        example: "",
-        type: "number",
-        nextMapping: "q3",
-        index: 0,
-        totalLength: 1
-    },  {
-        id: "q3",
-        questionText: "在庫数を入力してください。",
-        description: "",
-        example: "",
-        type: "number",
-        nextMapping: null,
-        index: 0,
-        totalLength: 1
-    }, 
-]
+export const allQuestions = [...itemGroupQuestions, ...itemItemTypeQuestion]

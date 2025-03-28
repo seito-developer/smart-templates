@@ -1,28 +1,5 @@
-import { SYMBOLS } from "@/constants/data"
 import { SELL_METHOD } from "@/constants/sellMethods"
-
-export interface QuestionProps {
-    id: string,
-    questionText: string,
-    description?: string,
-    example?: string,
-    type: string,
-    options?: string[],
-    nextMapping: any,
-    index: number,
-    totalLength: number
-}
-
-// id: string
-//   name: string
-//   fee: number
-//   terms: string
-//   sellMethod: SellMethodEnum
-//   isNotForSale: boolean
-//   resaleCondition: number
-//   isMemberInfoRequired: boolean
-//   isShippingAddressRequired: boolean
-//   iPHolderLoyaltyRate: number
+import { QuestionProps } from "@/pages/create-items/questions/questions"
 
 export const itemGroupQuestions: QuestionProps[] = [
     {
@@ -104,6 +81,70 @@ export const itemGroupQuestions: QuestionProps[] = [
             [SELL_METHOD.AUCTION.label]: null,
             [SELL_METHOD.FREE.label]: null,
             [SELL_METHOD.CONDITIONAL.label]: null
+        },
+        index: 0,
+        totalLength: 1
+    }, {
+        id: "item_group_q6",
+        questionText: "ResaleConditionの有無を選択してください。",
+        description: "",
+        example: "",
+        type: "choice",
+        options: [
+            "TRUE",
+            "FALSE",
+        ],
+        nextMapping: {
+            "TRUE": "item_group_q7",
+            "FALSE": "item_group_q7"
+        },
+        index: 0,
+        totalLength: 1
+    }, {
+        id: "item_group_q7",
+        questionText: "IsMemberInfoRequiredの有無を選択してください。",
+        description: "",
+        example: "",
+        type: "choice",
+        options: [
+            "TRUE",
+            "FALSE",
+        ],
+        nextMapping: {
+            "TRUE": "item_group_q8",
+            "FALSE": "item_group_q8"
+        },
+        index: 0,
+        totalLength: 1
+    }, {
+        id: "item_group_q8",
+        questionText: "IsShippingAddressRequiredの有無を選択してください。",
+        description: "",
+        example: "",
+        type: "choice",
+        options: [
+            "TRUE",
+            "FALSE",
+        ],
+        nextMapping: {
+            "TRUE": "item_group_q9",
+            "FALSE": "item_group_q9"
+        },
+        index: 0,
+        totalLength: 1
+    }, {
+        id: "item_group_q9",
+        questionText: "続けてアイテムを作成しますか？",
+        description: "",
+        example: "",
+        type: "choice",
+        options: [
+            "YES",
+            "NO",
+        ],
+        nextMapping: {
+            "YES": "item_item_type_q0",
+            "NO": null
         },
         index: 0,
         totalLength: 1

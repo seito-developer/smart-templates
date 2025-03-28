@@ -6,12 +6,12 @@ import { Button } from '@/components/ui/button'
 import { useKeyContol } from '@/hooks/useKeyContol'
 import { getQuestionById } from '@/lib/utils'
 import Result from './result'
-import { itemGroupQuestions } from './questions/itemGroup'
+import { allQuestions } from './questions/questions'
 
 export default function CreateItems() {
   const [currentQuestionId, setCurrentQuestionId] = useState<string | null>('item_group_q0')
   const [answers, setAnswers] = useState({})
-  const currentQuestion = getQuestionById(itemGroupQuestions, currentQuestionId)
+  const currentQuestion = getQuestionById(allQuestions, currentQuestionId)
   
   const handleNext = () => {
     if (!currentQuestion) return
