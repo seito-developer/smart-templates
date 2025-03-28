@@ -30,7 +30,3 @@ export const formatToYmd = (date:Date):string => {
 
   return `${year}-${month}-${day}`;
 }
-
-// 使用例
-const now = new Date();         // 今日の日時
-console.log(formatToYmd(now));  // "2025-03-17" など

@@ -18,7 +18,6 @@ export default function CreateItems() {
   const handleNext = () => {
     if (!currentQuestion) return
     const userAnswer = answers[currentQuestion.id]
-    console.log('currentQuestion.nextMapping', currentQuestion);
     // --- 必須回答のバリデーション ---
     if (!userAnswer || (typeof userAnswer === 'string' && userAnswer.trim() === '')) {
       alert('回答を入力（または選択）してください。')
