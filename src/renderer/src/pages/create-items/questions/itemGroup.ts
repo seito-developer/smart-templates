@@ -72,15 +72,15 @@ export const itemGroupQuestions: QuestionProps[] = [
             SELL_METHOD.CONDITIONAL.label
         ],
         nextMapping: {
-            [SELL_METHOD.UNSPECIFIED.label]: null,
-            [SELL_METHOD.REGULAR.label]: null,
-            [SELL_METHOD.LOTTERY.label]: null,
-            [SELL_METHOD.DIRECT.label]: null,
-            [SELL_METHOD.INDIRECT.label]: null,
-            [SELL_METHOD.STEP_LOTTERY.label]: null,
-            [SELL_METHOD.AUCTION.label]: null,
-            [SELL_METHOD.FREE.label]: null,
-            [SELL_METHOD.CONDITIONAL.label]: null
+            [SELL_METHOD.UNSPECIFIED.label]: 'item_group_q6',
+            [SELL_METHOD.REGULAR.label]: 'item_group_q6',
+            [SELL_METHOD.LOTTERY.label]: 'item_group_q6',
+            [SELL_METHOD.DIRECT.label]: 'item_group_q6',
+            [SELL_METHOD.INDIRECT.label]: 'item_group_q6',
+            [SELL_METHOD.STEP_LOTTERY.label]: 'item_group_q6',
+            [SELL_METHOD.AUCTION.label]: 'item_group_q6',
+            [SELL_METHOD.FREE.label]: 'item_group_q6',
+            [SELL_METHOD.CONDITIONAL.label]: 'item_group_q6'
         },
         index: 0,
         totalLength: 1
