@@ -12,8 +12,9 @@ export default function CreateItems() {
   const [currentQuestionId, setCurrentQuestionId] = useState<string | null>('item_group_q0')
   const [answers, setAnswers] = useState({})
   const currentQuestion = getQuestionById(itemGroupQuestions, currentQuestionId)
-  console.log('currentQuestion:', currentQuestion);
+  
   const handleNext = () => {
+
     if (!currentQuestion) return
     const userAnswer = answers[currentQuestion.id]
 
@@ -24,12 +25,7 @@ export default function CreateItems() {
     }
 
     let nextId = null
-    if (currentQuestion.type === 'choice') {
-      const selectedValue = answers[currentQuestion.id]
-      nextId = currentQuestion.nextMapping[selectedValue]
-    } else if (currentQuestion.type === 'text' || currentQuestion.type === 'number') {
-      nextId = currentQuestion.nextMapping
-    }
+    nextId = currentQuestion.nextMapping
     if (!nextId) {
       setCurrentQuestionId(null)
     } else {
@@ -46,7 +42,6 @@ export default function CreateItems() {
 
   // 選択肢のクリック・テキスト入力の変更を拾うためのハンドラ
   const handleAnswer = (questionId, value) => {
-    // 既存のanswersをコピーして変更
     setAnswers((prev) => ({
       ...prev,
       [questionId]: value

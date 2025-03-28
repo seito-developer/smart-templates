@@ -57,3 +57,10 @@ export const SELL_METHOD = {
     label: '条件付与'
   }
 }
+
+// ・文字列を引数に受け取る。文字列はSELL_METHODのlabelのいずれか
+// ・引数の文字列に対応するSELL_METHODのvalueを返す
+export const getSellMethodValue = (label: string): number => {
+  const sellMethod = Object.values(SELL_METHOD).find(method => method.label === label);
+  return sellMethod ? sellMethod.value : -1;
+}

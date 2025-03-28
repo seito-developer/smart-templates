@@ -1,4 +1,4 @@
-import { SellMethodEnum } from "@/constants/sellMethods"
+import { getSellMethodValue, SellMethodEnum } from "@/constants/sellMethods"
 import { convertBoolean } from "@/lib/utils"
 
 export interface ItemGroupArgsProps {
@@ -34,13 +34,14 @@ const generateTableData = (answers: any):ItemGroupReturnProps => {
     name: answers['item_group_q2'],
     fee: answers['item_group_q3'],
     terms: answers['item_group_q4'],
-    sellMethod: answers['item_group_q5'],
+    sellMethod: getSellMethodValue(answers['item_group_q5']),
     isNotForSale: false,
     resaleCondition: 1,
     isMemberInfoRequired: false,
     isShippingAddressRequired: false,
     iPHolderLoyaltyRate: 0,
   }
+  console.log('convertedAnswer:', convertedAnswer);
 
   return {
     Exec: convertBoolean(true, 0) as string,
