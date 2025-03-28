@@ -7,7 +7,6 @@ export function useKeyContol({rightEvent, leftEvent} : {rightEvent: () => void, 
       if (e.key === 'ArrowRight') {
         rightEvent()
       } else if (e.key === 'ArrowLeft') {
-        console.log('← (ArrowLeft) が押されました')
         leftEvent()
       }
     }

@@ -11,6 +11,7 @@ export interface QuestionProps {
     nextMapping: any,
     index: number,
     totalLength: number
+    isNullable?: boolean
 }
 
 export const allQuestions = [...itemGroupQuestions, ...itemItemTypeQuestion]

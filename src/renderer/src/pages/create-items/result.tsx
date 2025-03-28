@@ -1,6 +1,8 @@
 import { Button } from '@/components/ui/button'
 import TableData from '@/components/Table'
-import { generateTableData } from './tableData/item_group'
+import { generateItemGroupTable } from './tableData/item_group'
+import { generateItemItemTypeTable } from './tableData/item_item_type'
+import { getKeysAndValues } from '@/lib/utils'
 
 export default function Result({
   answers,
@@ -9,25 +11,23 @@ export default function Result({
   answers: any
   handleReset: () => void
 }) {
-  
-  const obj = generateTableData(answers)
-  console.log('obj:', obj);
-  const keys = Object.keys(obj)
-  const values = Object.values(obj)
+  const itemGroupTable = getKeysAndValues(generateItemGroupTable(answers))
+  const itemItemTypeTable = getKeysAndValues(generateItemItemTypeTable(answers))
 
   return (
     <>
     {answers['item_group_q0'] === 'はい' && (
       <>
       <p className='font-bold'>item_group</p>
-      <TableData thead={keys} tbody={values} />
+      <TableData thead={itemGroupTable.keys} tbody={itemGroupTable.values} />
       <br />
       </>
     )}
-      {/* <p className='font-bold'>item_item_type</p>
-      <TableData thead={keys} tbody={values} />
+      <p className='font-bold'>item_item_type</p>
+      <TableData thead={itemItemTypeTable.keys} tbody={itemItemTypeTable.values} />
       <br />
-      <p className='font-bold'>shop_sell_item</p>
+
+      {/* <p className='font-bold'>shop_sell_item</p>
       <TableData thead={keys} tbody={values} />
       <br />
       <p className='font-bold'>nft_metdata</p>

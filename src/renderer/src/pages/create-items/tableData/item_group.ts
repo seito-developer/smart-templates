@@ -28,7 +28,7 @@ export interface ItemGroupReturnProps {
   IPHolderLoyaltyRate: number
 }
 
-const generateTableData = (answers: any):ItemGroupReturnProps => {
+export　const generateItemGroupTable = (answers: any):ItemGroupReturnProps => {
   const convertedAnswer:ItemGroupArgsProps = {
     id: answers['item_group_q1'],
     name: answers['item_group_q2'],
@@ -56,5 +56,3 @@ const generateTableData = (answers: any):ItemGroupReturnProps => {
     IPHolderLoyaltyRate: 100 - convertedAnswer.fee,
   }
 }
-
-export { generateTableData }
