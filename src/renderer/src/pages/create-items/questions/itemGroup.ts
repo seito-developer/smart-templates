@@ -4,27 +4,27 @@ import { QuestionProps } from "@/pages/create-items/questions/questions"
 export const itemGroupQuestions: QuestionProps[] = [
     {
         id: "item_group_q0",
+        questionText: "アイテムグループのIDを入力してください。",
+        description: "新規で作る場合、既存のアイテムグループのIDと重複しないよう一意の値にしてください。また連番になるようにしてください。",
+        example: "32",
+        type: "number",
+        nextMapping: "item_group_q1",
+        index: 0,
+        totalLength: 1
+    },
+    {
+        id: "item_group_q1",
         questionText: "アイテムグループを新規に作りますか？",
         description: "新規にグループも作るなら「はい」、既存のグループに所属させるなら「いいえ」",
         type: "choice",
         options: ['はい', 'いいえ'],
         nextMapping: {
-            'はい': 'item_group_q1',
-            'いいえ': null //'item_item_type_q0'
+            'はい': 'item_group_q2',
+            'いいえ': "item_item_type_q0"
         },
         index: 0,
         totalLength: 1
-    }, 
-    {
-        id: "item_group_q1",
-        questionText: "IDを入力してください。",
-        description: "既存のアイテムグループのIDと重複しないよう一意の値にしてください。また連番になるようにしてください。",
-        example: "32",
-        type: "number",
-        nextMapping: "item_group_q2",
-        index: 0,
-        totalLength: 1
-    },  
+    },
     {
         id: "item_group_q2",
         questionText: "アイテムグループ名を入力してください。",

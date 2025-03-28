@@ -9,21 +9,22 @@ export const itemItemTypeQuestion: QuestionProps[] = [
         description: "",
         example: "テスト用アイテム01",
         type: "text",
-        nextMapping: "q1",
+        nextMapping: "item_item_type_q1",
         index: 0,
         totalLength: 1
     }, 
-    // {
-    //     id: "q1",
-    //     questionText: "シンボル名を入れてください。",
-    //     description: "シンボル＝ストアなどで使われている名称",
-    //     example: "",
-    //     type: "choice",
-    //     options: SYMBOLS,
-    //     nextMapping: "q2",
-    //     index: 0,
-    //     totalLength: 1
-    // }, {
+    {
+        id: "item_item_type_q1",
+        questionText: "シンボル名を入れてください。",
+        description: "シンボル＝ストアなどで使われている名称",
+        example: "",
+        type: "choice",
+        options: SYMBOLS,
+        nextMapping: null,
+        index: 0,
+        totalLength: 1
+    },
+    //  {
     //     id: "q2",
     //     questionText: "何番目のアイテムかを入力してください。",
     //     description: "例えばシートを確認し、30までグループがある場合、31と入力",
