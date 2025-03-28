@@ -28,7 +28,7 @@ export const questions: QuestionProps[] = [
         id: "q0",
         questionText: "アイテム名を入力してください。",
         description: "",
-        example: "",
+        example: "テスト用アイテム01",
         type: "text",
         nextMapping: "q1",
         index: 0,
@@ -36,7 +36,7 @@ export const questions: QuestionProps[] = [
     }, {
         id: "q1",
         questionText: "シンボル名を入れてください。",
-        description: "",
+        description: "シンボル＝ストアなどで使われている名称",
         example: "",
         type: "choice",
         options: SYMBOLS,
@@ -46,7 +46,7 @@ export const questions: QuestionProps[] = [
     }, {
         id: "q2",
         questionText: "何番目のアイテムかを入力してください。",
-        description: "",
+        description: "例えばシートを確認し、30までグループがある場合、31と入力",
         example: "",
         type: "number",
         nextMapping: "q3",

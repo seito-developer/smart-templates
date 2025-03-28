@@ -41,7 +41,6 @@ const generateTableData = (answers: any):ItemGroupReturnProps => {
     isShippingAddressRequired: false,
     iPHolderLoyaltyRate: 0,
   }
-  console.log('convertedAnswer:', convertedAnswer);
 
   return {
     Exec: convertBoolean(true, 0) as string,

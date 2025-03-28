@@ -73,7 +73,7 @@ export const itemGroupQuestions: QuestionProps[] = [
         questionText: "利用規約の文言を入力してください。",
         description: "アイテムが購入されたときに表示される利用規約",
         example: "【テストの利用規約文言】このアイテムは2025/01/01まで有効です。",
-        type: "text",
+        type: "textarea",
         nextMapping: "item_group_q5",
         index: 0,
         totalLength: 1

@@ -1,7 +1,7 @@
 import { Input } from './ui/input'
 import Options from './Options'
-import { formatToYmd } from '@/lib/date'
 import { QuestionProps } from '@/pages/create-items/questions/questions'
+import { Textarea } from './ui/textarea'
 
 export function AnswerField({ question, answers, handleAnswerChange } : {
   question: QuestionProps, answers: any, handleAnswerChange: (questionId: string, value: string) => void
@@ -17,23 +17,6 @@ export function AnswerField({ question, answers, handleAnswerChange } : {
         </div>
       )
     }
-    // if (type === 'date') {
-    //   if (!userAnswer) {
-    //     userAnswer = formatToYmd(new Date())
-    //   }
-    //   return (
-    //     <div>
-    //       <p>{questionText}</p>
-    //       <Input
-    //         type="date"
-    //         value={userAnswer}
-    //         required
-    //         autoFocus
-    //         onChange={(e) => handleAnswerChange(id, e.target.value)}
-    //       />
-    //     </div>
-    //   )
-    // }
     if (type === 'number') {
       return (
         <div>
@@ -44,6 +27,15 @@ export function AnswerField({ question, answers, handleAnswerChange } : {
             autoFocus
             onChange={(e) => handleAnswerChange(id, e.target.value)}
           />
+        </div>
+      )
+    }
+    if (type === 'textarea') {
+      return (
+        <div>
+          <Textarea required autoFocus onChange={(e) => handleAnswerChange(id, e.target.value)}>
+            {userAnswer}
+          </Textarea>
         </div>
       )
     }

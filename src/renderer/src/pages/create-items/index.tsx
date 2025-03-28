@@ -27,7 +27,7 @@ export default function CreateItems() {
     if (currentQuestion.type === 'choice') {
       const selectedValue = answers[currentQuestion.id]
       nextId = currentQuestion.nextMapping[selectedValue]
-    } else if (currentQuestion.type === 'text' || currentQuestion.type === 'number') {
+    } else {
       nextId = currentQuestion.nextMapping
     }
     if (!nextId) {
