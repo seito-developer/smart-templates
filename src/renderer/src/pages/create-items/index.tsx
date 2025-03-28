@@ -14,10 +14,9 @@ export default function CreateItems() {
   const currentQuestion = getQuestionById(itemGroupQuestions, currentQuestionId)
   
   const handleNext = () => {
-
     if (!currentQuestion) return
     const userAnswer = answers[currentQuestion.id]
-
+    
     // --- 必須回答のバリデーション ---
     if (!userAnswer || (typeof userAnswer === 'string' && userAnswer.trim() === '')) {
       alert('回答を入力（または選択）してください。')
@@ -25,7 +24,12 @@ export default function CreateItems() {
     }
 
     let nextId = null
-    nextId = currentQuestion.nextMapping
+    if (currentQuestion.type === 'choice') {
+      const selectedValue = answers[currentQuestion.id]
+      nextId = currentQuestion.nextMapping[selectedValue]
+    } else if (currentQuestion.type === 'text' || currentQuestion.type === 'number') {
+      nextId = currentQuestion.nextMapping
+    }
     if (!nextId) {
       setCurrentQuestionId(null)
     } else {
@@ -42,6 +46,7 @@ export default function CreateItems() {
 
   // 選択肢のクリック・テキスト入力の変更を拾うためのハンドラ
   const handleAnswer = (questionId, value) => {
+    // 既存のanswersをコピーして変更
     setAnswers((prev) => ({
       ...prev,
       [questionId]: value

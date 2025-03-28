@@ -94,7 +94,17 @@ export const itemGroupQuestions: QuestionProps[] = [
             SELL_METHOD.FREE.label,
             SELL_METHOD.CONDITIONAL.label
         ],
-        nextMapping: null,
+        nextMapping: {
+            [SELL_METHOD.UNSPECIFIED.label]: null,
+            [SELL_METHOD.REGULAR.label]: null,
+            [SELL_METHOD.LOTTERY.label]: null,
+            [SELL_METHOD.DIRECT.label]: null,
+            [SELL_METHOD.INDIRECT.label]: null,
+            [SELL_METHOD.STEP_LOTTERY.label]: null,
+            [SELL_METHOD.AUCTION.label]: null,
+            [SELL_METHOD.FREE.label]: null,
+            [SELL_METHOD.CONDITIONAL.label]: null
+        },
         index: 0,
         totalLength: 1
     }
