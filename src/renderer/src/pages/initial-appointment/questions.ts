@@ -75,7 +75,7 @@ export const questions: QuestionProps[] = [
     },{
         id: "q4_continued",
         questionText: "次回の面談日を入力してください。",
-        type: "date",
+        type: "date-time",
         nextMapping: null,
         index: 4,
         totalLength: 5

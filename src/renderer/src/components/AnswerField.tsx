@@ -32,6 +32,23 @@ export function AnswerField({ question, answers, handleAnswerChange }) {
         </div>
       )
     }
+    if (type === 'date-time') {
+      // if (!userAnswer) {
+      //   userAnswer = formatToYmd(new Date(), true)
+      // }
+      return (
+        <div>
+          <p>{questionText}</p>
+          <Input
+            type="datetime-local"
+            value={userAnswer}
+            required
+            autoFocus
+            onChange={(e) => handleAnswerChange(id, e.target.value, true)}
+          />
+        </div>
+      )
+    }
 
     return (
       <div>

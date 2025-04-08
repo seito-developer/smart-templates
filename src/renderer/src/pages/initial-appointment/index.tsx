@@ -7,6 +7,7 @@ import { useKeyContol } from '@/hooks/useKeyContol'
 import { getQuestionById } from '@/lib/utils'
 import Result from './result'
 import { questions } from './questions'
+import { convertDate } from '@/lib/date'
 
 export default function InitialAppointment() {
   const [currentQuestionId, setCurrentQuestionId] = useState<string | null>('q0')
@@ -45,11 +46,11 @@ export default function InitialAppointment() {
   })
 
   // 選択肢のクリック・テキスト入力の変更を拾うためのハンドラ
-  const handleAnswer = (questionId, value) => {
+  const handleAnswer = (questionId: string, value: any, isDate?: boolean) => {
     // 既存のanswersをコピーして変更
     setAnswers((prev) => ({
       ...prev,
-      [questionId]: value
+      [questionId]: isDate ? convertDate(value) : value
     }))
   }
 

@@ -28,9 +28,11 @@ export const formatToYmd = (date:Date):string => {
   // 日付も同様にゼロ埋め
   const day = String(date.getDate()).padStart(2, '0');
 
-  return `${year}-${month}-${day}`;
+  return `${year}/${month}/${day}`;
 }
 
-// 使用例
-const now = new Date();         // 今日の日時
-console.log(formatToYmd(now));  // "2025-03-17" など
+// "yyyy-mm-ddTtime" -> "yyyy/mm/dd time"
+export const convertDate = (date: string): string => {
+  const dateArray = date.replaceAll('-', '/').split('T')
+  return `${dateArray[0]} ${dateArray[1]}`
+}
