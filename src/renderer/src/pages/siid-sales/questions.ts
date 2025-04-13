@@ -21,12 +21,12 @@ export const questions: QuestionProps[] = [
         questionText: "個別説明会の実施時期はいつですか？",
         type: "choice",
         options: [
-            "今日", "昨日", "一昨日以前"
+            "今日", "昨日", "先日"
         ],
         nextMapping: {
             "今日":"q2", 
             "昨日":"q2", 
-            "一昨日以前":"q2"
+            "先日":"q2"
         },
         index: 1,
         totalLength: 6

@@ -27,12 +27,12 @@ export const questions: QuestionProps[] = [
         questionText: "面談の実施時期はいつですか？",
         type: "choice",
         options: [
-            "今日", "昨日", "一昨日以前"
+            "今日", "昨日", "先日"
         ],
         nextMapping: {
             "今日":"q2", 
             "昨日":"q2", 
-            "一昨日以前":"q2"
+            "先日":"q2"
         },
         index: 1,
         totalLength: 7
@@ -75,11 +75,25 @@ export const questions: QuestionProps[] = [
     },{
         id: "q4_continued",
         questionText: "次回の面談日を入力してください。",
-        type: "date-time",
-        nextMapping: null,
+        type: "text",
+        nextMapping: "q5_continued",
         index: 4,
         totalLength: 5
     }, {
+        id: "q5_continued",
+        questionText: "担当者を選択してください。",
+        type: "choice",
+        options: [
+            "SiiD代表・堀口セイト", "SiiD技術講師・有田", "SiiD講師・伊賀"
+        ],
+        nextMapping: {
+            "SiiD代表・堀口セイト": null,
+            "SiiD技術講師・有田": null,
+            "SiiD講師・伊賀": null,
+        },
+        index: 5,
+        totalLength: 7
+    },{
         id: "q5_accepted",
         questionText: "受講開始日を入力してください。",
         type: "date",

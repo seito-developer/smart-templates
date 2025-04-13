@@ -16,6 +16,7 @@ export const templateDenied = ({
     `${time}のシートはこちらよりアクセス＆ダウンロード可能です。`,
     `${sheet_url}`,
     ``,
+    `よろしければXなどでハッシュタグ「#siid」と共に感想を投稿いただけたら嬉しいです！`,
     `何卒よろしくお願い致します。`
   ].join('\n')
   return texts
@@ -25,12 +26,14 @@ export const templateDenied = ({
     name,
     sheet_url,
     time,
-    date
+    date, 
+    presenter
   }: {
     name: string
     sheet_url: string
     time: string,
-    date: string
+    date: string,
+    presenter: string
   }) => {
     const texts = [
       `${name}様`,
@@ -45,7 +48,8 @@ export const templateDenied = ({
       `楽しみにしていてください！`,
       ``,
       `日時：${date}`,
-      `URL：https://us06web.zoom.us/j/85051956583`,
+      `URL：https://us06web.zoom.us/j/9058397792`,
+      `担当：${presenter}`,
       ``,
       `何卒よろしくお願い致します。`
     ].join('\n')

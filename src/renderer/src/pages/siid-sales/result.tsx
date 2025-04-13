@@ -27,7 +27,7 @@ export default function Result({
         textContent={templateConsidered({
           name: answers['q0'],
           time: answers['q1'],
-          discount_limitation: answers['q3_considered'],
+          discount_limitation: answers['q3_considered'].replaceAll('-','/'),
           isReskill: answers['q5_accepted']
         })}
       />

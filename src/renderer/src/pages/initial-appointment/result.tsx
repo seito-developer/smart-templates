@@ -41,7 +41,8 @@ export default function Result({
             name: answers['q0'],
             time: answers['q1'],
             sheet_url: answers['q2'],
-            date: answers['q4_continued']
+            date: answers['q4_continued'],
+            presenter: answers['q5_continued'],
           })}
         />
       )
