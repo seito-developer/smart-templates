@@ -33,7 +33,7 @@ export const templateConsidered = ({
     ``,
     `お世話になっております。SiiD運営チームです。`,
     `${time}はSiiD個別説明会にお越しいただきありがとうございました！`,
-    `${discount_limitation}までのお申し込みで早期お申し込み限定特典をつけさせていただきます`,
+    `${discount_limitation}までのお申し込みで早期お申し込み限定特典をつけさせていただきます。`,
     ``,
     `一度ご検討くださいませ！`,
     ``,

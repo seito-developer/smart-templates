@@ -68,7 +68,7 @@ const templateAccepted = ({
           `動画説明）https://drive.google.com/file/d/16xHw7Mn3C10Fi_AfEo95Yyql-XNXR7FY/view?usp=drive_link`,
           `資料）https://drive.google.com/file/d/1HS8WXcpo2k66GVWMp8q9wsCDhOT2XlWM/view?usp=drive_link`,
           `窓口でお申し込みされる際は、下記弊社の講座情報をお伝えくださいませ。`,
-          `・指定番号「1312047-2420011-0」`,
+          `・指定講座番号「1312047-2420011-0」`,
           `・講座名「SiiD Careerコース」`,
           ``
         ].join('\n')

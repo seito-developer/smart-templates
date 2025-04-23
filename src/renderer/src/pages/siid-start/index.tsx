@@ -59,8 +59,10 @@ export default function SiidStart() {
   }
   
   return (
-    <Layout title="受講開始メール">
-      <p>※Amazon pt付与が完了していたら、受講開始メールを送信する</p>
+    <Layout title="開始案内">
+      <p>下記が完了していれば送信する</p>
+      <p>・お申込み書のご署名とご入金の完了</p>
+      <p>・教科書費用分のAmazonポイントの付与（セイト経由）</p>
       <br />
       
       <ProgressBar currentQuestion={currentQuestion} />

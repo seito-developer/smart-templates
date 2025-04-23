@@ -48,3 +48,29 @@ export const templateOnClass = ({ name }: { name: string }) => {
   ].join('\n')
   return texts
 }
+
+export const templateSpecialGifts = ({ name }: { name: string }) => {
+  const texts = [
+    `${name}様`,
+    ``,
+    `お世話になっております。SiiD運営チームです。`,
+    `こちらは早期お申し込み特典のご案内です。`,
+    ``,
+    `この度はSiiDへの早期お申し込み、ありがとうございました！`,
+    `下記の通り、有料動画を無料にてご提供いたします。`,
+    ``,
+    `===============`,
+    `1.【2025年最新】未経験からWeb/ITエンジニアへ転職するためのロードマップ`,
+    `https://www.youtube.com/watch?v=FFQnioJPqhA&list=PL4kkEvmucCdRrdnjOUJJlqFFAjKIm38dQ`,
+    ``,
+    `2.HTML CSS JS上級 Web制作プロフェッショナル・コース`,
+    `https://www.youtube.com/playlist?list=PL4kkEvmucCdSxQS9OG1DCN6Vpz9AbkAwA`,
+    `===============`,
+    ``,
+    `1は今からでも御覧頂いて勉強できる内容になっています。`,
+    `2は少なくとも受講開始後、Step10完了後以降に取り組んでいただくことを推奨いたします。`,
+    ``,
+    `何卒よろしくお願いいたします。`
+  ].join('\n')
+return texts
+}
