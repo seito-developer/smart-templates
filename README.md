@@ -1,34 +1,33 @@
-# package.json
+# `Turborepo` Vite starter
 
-An Electron application with React and TypeScript
+This is a community-maintained example. If you experience a problem, please submit a pull request with a fix. GitHub Issues will be closed.
 
-## Recommended IDE Setup
+## Using this example
 
-- [VSCode](https://code.visualstudio.com/) + [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) + [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
+Run the following command:
 
-## Project Setup
-
-### Install
-
-```bash
-$ npm install
+```sh
+npx create-turbo@latest -e with-vite
 ```
 
-### Development
+## What's inside?
 
-```bash
-$ npm run dev
-```
+This Turborepo includes the following packages and apps:
 
-### Build
+### Apps and Packages
 
-```bash
-# For windows
-$ npm run build:win
+- `docs`: a vanilla [vite](https://vitejs.dev) ts app
+- `web`: another vanilla [vite](https://vitejs.dev) ts app
+- `@repo/ui`: a stub component & utility library shared by both `web` and `docs` applications
+- `@repo/eslint-config`: shared `eslint` configurations
+- `@repo/typescript-config`: `tsconfig.json`s used throughout the monorepo
 
-# For macOS
-$ npm run build:mac
+Each package and app is 100% [TypeScript](https://www.typescriptlang.org/).
 
-# For Linux
-$ npm run build:linux
-```
+### Utilities
+
+This Turborepo has some additional tools already setup for you:
+
+- [TypeScript](https://www.typescriptlang.org/) for static type checking
+- [ESLint](https://eslint.org/) for code linting
+- [Prettier](https://prettier.io) for code formatting
