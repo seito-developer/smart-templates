@@ -2,6 +2,8 @@ import { courseData } from '@/constants/courseData'
 import { add365Days } from '@/lib/date'
 import { convertFee } from '@/lib/utils'
 
+type CourseKey = keyof typeof courseData;
+
 const templateAccepted = ({
   isConsulting = false,
   name,
@@ -15,7 +17,7 @@ const templateAccepted = ({
   name: string
   time: string
   sheet_url?: string
-  course: string // "career" or "careerFullSupport" or "careerVIP" or "basic"
+  course: CourseKey // "career" or "careerFullSupport" or "careerVIP" or "basic"
   start_date: string
   isReskill: string // "有" or "無"
 }) => {
@@ -30,7 +32,7 @@ const templateAccepted = ({
     : ``
 
   // お申込み方法
-  const how_to_apply = (course: string) => {
+  const how_to_apply = (course: CourseKey) => {
     const applying_texts = [
       ``,
       `▶2.お申し込みのプラン・費用・支払い形式に関しまして`,
