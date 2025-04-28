@@ -12,6 +12,6 @@ export function convertFee(value: number | string): string {
 
 export const getQuestionById = (questions:QuestionProps[], id:string | null): QuestionProps | null => {
   if(!id || !questions) return null
-  const question = questions.find((q) => q.id === id)
+  const question = questions.find((q:QuestionProps) => q.id === id)
   return question ? question : null
 }

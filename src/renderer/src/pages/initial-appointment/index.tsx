@@ -47,9 +47,9 @@ export default function InitialAppointment() {
   })
 
   // 選択肢のクリック・テキスト入力の変更を拾うためのハンドラ
-  const handleAnswer = (questionId: string, value: any, isDate?: boolean) => {
+  const handleAnswer = (questionId: string, value: string, isDate?: boolean) => {
     // 既存のanswersをコピーして変更
-    setAnswers((prev) => ({
+    setAnswers((prev: AnswersProps) => ({
       ...prev,
       [questionId]: isDate ? convertDate(value) : value
     }))
