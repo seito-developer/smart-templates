@@ -16,7 +16,7 @@ function App() {
         {/* <Route path={HOME} element={<Login />} /> */}
         {/* <Route path={SIGNUP} element={<SignUp />} /> */}
         <Route path={TEMPLATES.INITIAL_APPOINTMENT} element={<InitialAppointment />} />
-        {/* <Route path={TEMPLATES.SIID_SALES} element={<SiidSales />} /> */}
+        <Route path={TEMPLATES.SIID_SALES} element={<SiidSales />} />
         <Route path={TEMPLATES.SIID_START} element={<SiidStart />} />
       </Routes>
     </BrowserRouter>

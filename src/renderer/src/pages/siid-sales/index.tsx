@@ -45,7 +45,7 @@ export default function SiidSales() {
   })
 
   // 選択肢のクリック・テキスト入力の変更を拾うためのハンドラ
-  const handleAnswer = (questionId, value) => {
+  const handleAnswer = (questionId:string, value:any) => {
     // 既存のanswersをコピーして変更
     setAnswers((prev) => ({
       ...prev,
