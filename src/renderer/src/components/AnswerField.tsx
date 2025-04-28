@@ -3,7 +3,15 @@ import Options from './Options'
 import { formatToYmd } from '@/lib/date'
 import { AnswersProps, QuestionProps } from '@/commonInterfaces/interfaces'
 
-export function AnswerField({ question, answers, handleAnswerChange }: { question: QuestionProps, answers: AnswersProps, handleAnswerChange: (id: string, value: string, isDateTime?: boolean) => void }) {
+export function AnswerField({
+  question,
+  answers,
+  handleAnswerChange
+}: {
+  question: QuestionProps
+  answers: AnswersProps
+  handleAnswerChange: (id: string, value: string, isDateTime?: boolean) => void
+}) {
   const { id, questionText, type, options } = question
   let userAnswer = answers[id] || '' // 既に答えていれば反映
 
@@ -28,7 +36,9 @@ export function AnswerField({ question, answers, handleAnswerChange }: { questio
             value={userAnswer}
             required
             autoFocus
-            onChange={(e) => handleAnswerChange(id, e.target.value)}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+              handleAnswerChange(id, e.target.value)
+            }
           />
         </div>
       )
@@ -45,7 +55,9 @@ export function AnswerField({ question, answers, handleAnswerChange }: { questio
             value={userAnswer}
             required
             autoFocus
-            onChange={(e) => handleAnswerChange(id, e.target.value, true)}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+              handleAnswerChange(id, e.target.value, true)
+            }
           />
         </div>
       )
@@ -59,7 +71,9 @@ export function AnswerField({ question, answers, handleAnswerChange }: { questio
           value={userAnswer}
           required
           autoFocus
-          onChange={(e) => handleAnswerChange(id, e.target.value)}
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+            handleAnswerChange(id, e.target.value)
+          }
         />
       </div>
     )
