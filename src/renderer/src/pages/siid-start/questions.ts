@@ -1,12 +1,4 @@
-export interface QuestionProps {
-    id: string,
-    questionText: string,
-    type: string,
-    options?: string[],
-    nextMapping: any,
-    index: number,
-    totalLength: number
-}
+import { QuestionProps } from "@/commonInterfaces/interfaces";
 
 export const questions: QuestionProps[] = [
     {

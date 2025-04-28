@@ -7,11 +7,12 @@ import { useKeyContol } from '@/hooks/useKeyContol'
 import { getQuestionById } from '@/lib/utils'
 import Result from './result'
 import { questions } from './questions'
+import { AnswersProps, QuestionProps } from '@/commonInterfaces/interfaces'
 
 export default function SiidStart() {
   const [currentQuestionId, setCurrentQuestionId] = useState<string | null>('q0')
-  const [answers, setAnswers] = useState({})
-  const currentQuestion = getQuestionById(questions, currentQuestionId)
+  const [answers, setAnswers] = useState<AnswersProps>({})
+  const currentQuestion:QuestionProps | null = getQuestionById(questions, currentQuestionId)
 
   const handleNext = () => {
     if (!currentQuestion) return
@@ -45,7 +46,7 @@ export default function SiidStart() {
   })
 
   // 選択肢のクリック・テキスト入力の変更を拾うためのハンドラ
-  const handleAnswer = (questionId, value) => {
+  const handleAnswer = (questionId:string, value:any) => {
     // 既存のanswersをコピーして変更
     setAnswers((prev) => ({
       ...prev,
@@ -70,11 +71,13 @@ export default function SiidStart() {
       <div className="my-5">
         {currentQuestionId ? (
           <>
-            <AnswerField
-              question={currentQuestion}
-              answers={answers}
-              handleAnswerChange={handleAnswer}
-            />
+            {(currentQuestion && answers) && (
+              <AnswerField
+                question={currentQuestion}
+                answers={answers}
+                handleAnswerChange={handleAnswer}
+              />
+            )}
             <br />
             <Button variant="outline" onClick={handleNext}>
               次へ

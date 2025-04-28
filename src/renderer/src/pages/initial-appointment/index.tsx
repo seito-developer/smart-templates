@@ -8,11 +8,12 @@ import { getQuestionById } from '@/lib/utils'
 import Result from './result'
 import { questions } from './questions'
 import { convertDate } from '@/lib/date'
+import { AnswersProps, QuestionProps } from '@/commonInterfaces/interfaces'
 
 export default function InitialAppointment() {
   const [currentQuestionId, setCurrentQuestionId] = useState<string | null>('q0')
-  const [answers, setAnswers] = useState({})
-  const currentQuestion = getQuestionById(questions, currentQuestionId)
+  const [answers, setAnswers] = useState<AnswersProps>({})
+  const currentQuestion:QuestionProps | null = getQuestionById(questions, currentQuestionId)
 
   const handleNext = () => {
     if (!currentQuestion) return
@@ -64,7 +65,7 @@ export default function InitialAppointment() {
       <ProgressBar currentQuestion={currentQuestion} />
 
       <div className="my-5">
-        {currentQuestionId ? (
+        {currentQuestionId && currentQuestion ? (
           <>
             <AnswerField
               question={currentQuestion}

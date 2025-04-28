@@ -6,7 +6,7 @@ export const add365Days = (dateStr:string):string => {
     date.setDate(date.getDate() + 364);
   
     // ゼロ埋めのヘルパー関数
-    const pad = (num) => String(num).padStart(2, '0');
+    const pad = (num:number) => String(num).padStart(2, '0');
   
     // 年・月・日を取り出して "yyyy-mm-dd" に整形
     const y = date.getFullYear();

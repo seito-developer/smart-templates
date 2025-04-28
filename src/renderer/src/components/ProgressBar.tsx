@@ -1,6 +1,6 @@
 
-import { QuestionProps } from '@/pages/initial-appointment/questions'
 import { Progress } from './ui/progress'
+import { QuestionProps } from '@/commonInterfaces/interfaces'
 
 export default function ProgressBar({currentQuestion}: {currentQuestion: QuestionProps | null}) {
   const calcPercentage = () => {

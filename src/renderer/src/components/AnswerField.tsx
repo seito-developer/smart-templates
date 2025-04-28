@@ -1,8 +1,9 @@
 import { Input } from './ui/input'
 import Options from './Options'
 import { formatToYmd } from '@/lib/date'
+import { AnswersProps, QuestionProps } from '@/commonInterfaces/interfaces'
 
-export function AnswerField({ question, answers, handleAnswerChange }) {
+export function AnswerField({ question, answers, handleAnswerChange }: { question: QuestionProps, answers: AnswersProps, handleAnswerChange: (id: string, value: string, isDateTime?: boolean) => void }) {
   const { id, questionText, type, options } = question
   let userAnswer = answers[id] || '' // 既に答えていれば反映
 
@@ -11,7 +12,7 @@ export function AnswerField({ question, answers, handleAnswerChange }) {
       return (
         <div>
           <p>{questionText}</p>
-          <Options id={id} options={options} onChange={handleAnswerChange} />
+          <Options id={id} options={options || []} onChange={handleAnswerChange} />
         </div>
       )
     }

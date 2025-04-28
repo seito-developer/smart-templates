@@ -1,3 +1,4 @@
+import { QuestionProps } from '@/commonInterfaces/interfaces'
 import { clsx, type ClassValue } from 'clsx'
 import { twMerge } from 'tailwind-merge'
 
@@ -9,6 +10,8 @@ export function convertFee(value: number | string): string {
   return `${value.toLocaleString()}円`
 }
 
-export const getQuestionById = (questions, id) => {
-  return questions.find((q) => q.id === id)
+export const getQuestionById = (questions:QuestionProps[], id:string | null): QuestionProps | null => {
+  if(!id || !questions) return null
+  const question = questions.find((q) => q.id === id)
+  return question ? question : null
 }

@@ -30,7 +30,7 @@ const templateAccepted = ({
     : ``
 
   // お申込み方法
-  const how_to_apply = (course) => {
+  const how_to_apply = (course: string) => {
     const applying_texts = [
       ``,
       `▶2.お申し込みのプラン・費用・支払い形式に関しまして`,

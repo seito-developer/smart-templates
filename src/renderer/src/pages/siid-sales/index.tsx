@@ -7,11 +7,12 @@ import { useKeyContol } from '@/hooks/useKeyContol'
 import { getQuestionById } from '@/lib/utils'
 import Result from './result'
 import { questions } from './questions'
+import { AnswersProps, QuestionProps } from '@/commonInterfaces/interfaces'
 
 export default function SiidSales() {
   const [currentQuestionId, setCurrentQuestionId] = useState<string | null>('q0')
-  const [answers, setAnswers] = useState({})
-  const currentQuestion = getQuestionById(questions, currentQuestionId)
+  const [answers, setAnswers] = useState<AnswersProps>({})
+  const currentQuestion:QuestionProps | null = getQuestionById(questions, currentQuestionId)
 
   const handleNext = () => {
     if (!currentQuestion) return
@@ -63,7 +64,7 @@ export default function SiidSales() {
       <ProgressBar currentQuestion={currentQuestion} />
 
       <div className="my-5">
-        {currentQuestionId ? (
+        {currentQuestionId && currentQuestion ? (
           <>
             <AnswerField
               question={currentQuestion}
